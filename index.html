@@ -38,7 +38,7 @@ nav a:nth-child(4n+4){background:var(--green)}
 .hero{padding-top:18px}
 .hero .scene{line-height:0}
 .hero svg{display:block;width:100%;height:auto}
-.hero h1{font-size:30px;margin:14px 0 2px;text-align:center}
+.hero h1{font-size:30px;font-weight:400;margin:14px 0 2px;text-align:center}
 .hero .sub{text-align:center;color:var(--muted);margin-bottom:12px}
 .count{display:flex;gap:8px;justify-content:center}
 .count div{flex:1;border:3px solid var(--ink);border-radius:18px;text-align:center;padding:6px 0}
@@ -101,8 +101,12 @@ nav a:nth-child(4n+4){background:var(--green)}
 .tag.bus{background:var(--green)}
 .tag.car{background:var(--yellow)}
 .tag.walk{background:var(--paper)}
-.tag.train,.tag.car,.tag.plane,.tag.bus{animation:none!important}
+.tag.train,.tag.car,.tag.plane,.tag.bus,.tag.takeoff,.tag.walk,.tag.taxi,.tag.cable,.tag.boat{animation:none!important}
 .tag.taxi{background:var(--paper)}
+.tag.ico{border:0;background:none;padding:0;margin-right:6px;line-height:0;vertical-align:middle}
+.tag.ico svg{width:36px;height:28px;display:inline-block;vertical-align:middle}
+.tag.ico svg *{stroke:#3E3A39;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+
 .must-badge{display:inline-block;background:var(--coral);border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:12px;vertical-align:middle}
 .pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
 @keyframes pop{0%{transform:scale(.96) translateY(8px);opacity:0}100%{transform:none;opacity:1}}
@@ -203,13 +207,13 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 .wxmini{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
 .mc{flex:1 0 64px;border:3px solid var(--ink);border-radius:14px;padding:2px 4px;text-align:center;font-size:13px;line-height:1.3}
 .mc b{display:block;font-weight:400}.mc span{display:block;font-size:20px}.mc small{color:var(--muted);font-size:12px}.mc.na{color:var(--muted)}
-.count b,.bp-time,.daybtn b,.item .time,.wxrow .d,.mc b{font-family:"Caveat","Iansui",cursive;font-weight:400}
+.count b,.bp-time,.daybtn b,.item .time,.wxrow .d,.mc b{font-family:"Iansui",sans-serif;font-weight:400}
 .count b{font-size:36px;line-height:1.1}
 .bp-time{font-size:34px}
 .bp-time small{font-family:"Iansui",sans-serif;font-weight:400}
 .daybtn b{font-size:21px;line-height:1}
 .item .time{font-size:19px}
-.wxrow .d{font-size:19px}
+.wxrow .d{font-size:18px;width:98px;white-space:nowrap}
 .wxrow .d small{font-family:"Iansui",sans-serif;font-weight:400}
 .mc b{font-size:17px}
 .road{background:#FFFFFF;border:3px solid var(--ink);border-radius:20px;padding:4px 6px 0;margin:2px 0 12px;overflow:hidden}
@@ -226,7 +230,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 #ledger input[type=text],#ledger input[type=number],#ledger select,#ledger textarea{width:100%;font:inherit;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:4px 10px;background:#FFFFFF}
 .lg-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .lg-tile{border:3px solid var(--ink);border-radius:18px;padding:6px 10px;text-align:center}
-.lg-big{display:block;font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:34px;line-height:1.1}
+.lg-big{display:block;font-family:"Iansui",sans-serif;font-weight:400;font-size:34px;line-height:1.1}
 .lg-tile small{font-size:12px}
 .lg-t1{background:var(--coral)}.lg-t2{background:var(--yellow)}.lg-t3{background:var(--water)}.lg-t4{background:var(--green)}
 .lg-bar{height:14px;border:3px solid var(--ink);border-radius:999px;overflow:hidden;background:#FFFFFF;margin:4px 0 2px}
@@ -243,11 +247,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 .lg-btn.lg-y{background:var(--yellow)}.lg-btn.lg-w{background:#FFFFFF}.lg-btn.lg-c{background:var(--coral)}
 .lg-btn:active{transform:scale(.96)}
 .lg-dayhead{display:flex;justify-content:space-between;border-bottom:3px dashed var(--ink);padding:6px 0 2px;margin-top:8px}
-.lg-num{font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:21px}
+.lg-num{font-family:"Iansui",sans-serif;font-weight:400;font-size:21px}
 .lg-entry{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:3px dashed #e6e0d4}
 .lg-m{flex:1;min-width:0;font-size:15px}
 .lg-m small{display:block;color:var(--muted);font-size:12px}
-.lg-a{font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:21px;text-align:right;line-height:1.1}
+.lg-a{font-family:"Iansui",sans-serif;font-weight:400;font-size:21px;text-align:right;line-height:1.1}
 .lg-a small{display:block;font-size:12px;color:var(--muted);font-family:"Iansui",sans-serif;font-weight:400}
 .lg-x{font:inherit;border:3px solid var(--ink);border-radius:50%;width:28px;height:28px;background:#FFFFFF;cursor:pointer;line-height:1;color:var(--ink)}
 .lg-tag{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 8px;font-size:12px;margin-right:4px}
@@ -257,6 +261,8 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 
 .note.feat{color:var(--ink);margin-top:2px}
 .note.drive{color:var(--ink)}
+.fall{stroke-dasharray:8 10;animation:fallflow 1s linear infinite}
+@keyframes fallflow{to{stroke-dashoffset:-18}}
 .plus1{font-size:15px;margin-left:3px;vertical-align:super;color:var(--muted)}
 #printDoc{display:none}
 @media print{
@@ -439,14 +445,14 @@ const TRIP = {
   ],
 
   days: [
-    { date:"12/21", iso:"2026-12-21", wk:"一", city:"miyazaki", scene:"car", title:"抵達北九州,自駕前往宮崎", sample:true, items:[
+    { date:"12/21", iso:"2026-12-21", wk:"一", city:"miyazaki", scene:"takachiho", title:"抵達北九州,自駕前往宮崎", sample:true, items:[
       { time:"06:15", name:"抵達北九州機場", tag:"plane", note:"入境,領行李" },
       { time:"08:00", name:"取租車(範例)", tag:"car", note:"記得帶駕照正本+日文譯本" },
       { time:"10:00", name:"自駕前往高千穗", tag:"car", drive:"北九州機場→高千穗 約3.5~4小時(估計)" },
-{ time:"12:30", name:"停車:第1御塩井停車場", tag:"car", note:"高千穗町向山,收費1,000日圓(舊資料500),離真名井瀑布步行5分,旺季容易客滿。備用:第3大橋800日圓/第4押方500日圓,60分鐘內免費(另有說法第3大橋免費,待確認)", map:"高千穂峡 第1御塩井駐車場" },      { time:"13:00", name:"高千穗峽(步道+划船)", tag:"walk", must:true, note:"步道免費。划船30分鐘/艘,最多3人,4,100~5,100日圓(依日期變動),8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { time:"15:30", name:"天岩戶神社(西本宮)+天安河原", tag:"walk", note:"參拜免費。停車場部分收費(費用待確認)", map:"天岩戸神社 西本宮", feat:"日本神話中天照大神躲進岩洞的傳說地。西本宮隔著河谷遙拜洞窟,步行約10分鐘可到天安河原,河灘上堆滿祈願的小石塔,氣氛安靜。", drive:"高千穗峽→天岩戶神社 約15分(估計)", luck:"主打開運招福、緣分、家庭平安,祭祀太陽神天照大神,適合祈求整體運勢轉好。天安河原堆小石塔許願。" },
+{ time:"12:30", name:"停車:第1御塩井停車場", tag:"car", note:"高千穗町向山,收費1,000日圓(舊資料500),離真名井瀑布步行5分,旺季容易客滿。備用:第3大橋800日圓/第4押方500日圓,60分鐘內免費(另有說法第3大橋免費,待確認)", map:"高千穂峡 第1御塩井駐車場" },      { time:"13:00", name:"高千穗峽(步道+划船)", tag:"boat", must:true, note:"步道免費。划船30分鐘/艘,最多3人,4,100~5,100日圓(依日期變動),8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { time:"15:30", name:"天岩戶神社(西本宮)+天安河原", tag:"walk", note:"參拜免費。停車場部分收費(費用待確認)", map:"天岩戸神社 西本宮", feat:"日本神話中天照大神躲進岩洞的傳說地。西本宮隔著河谷遙拜洞窟,步行約10分鐘可到天安河原,河灘上堆滿祈願的小石塔,氣氛安靜。", drive:"高千穗峽→天岩戶神社 約15分(估計)", luck:"主打開運招福、緣分、家庭平安,祭祀太陽神天照大神,適合祈求整體運勢轉好。天安河原堆小石塔許願。" },
       { time:"19:00(預估)", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", drive:"天岩戶神社→飯店 約2.5~3小時(估計)" }
     ]},
-    { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"udo", title:"宮崎一日(景點待補)", sample:true, items:[
+    { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"car", title:"宮崎一日(景點待補)", sample:true, items:[
       { time:"10:00", name:"日南太陽花園(サンメッセ日南)", tag:"car", must:true, note:"成人1,000日圓。9:30~17:00,週三休。停車場免費", map:"サンメッセ日南", feat:"七尊摩艾像面向太平洋,是獲得智利復活節島長老會正式許可複製的。站在山丘上能看到整片日南海岸,拍照很出片。", drive:"飯店→日南太陽花園 約50分(估計)" },
       { time:"12:30", name:"午餐:宮崎名物(待補)", tag:"walk" },
       { time:"下午(時間待定)", name:"鵜戶神宮", tag:"car", must:true, note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"傍晚(時間待定)", name:"飫肥城跡", tag:"walk", must:true, note:"停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" }
@@ -458,10 +464,10 @@ const TRIP = {
       { time:"10:00", name:"小倉城(範例)", tag:"walk", must:true, map:"小倉城" },
       { time:"13:00", name:"旦過市場(範例)", tag:"walk", must:true, map:"旦過市場" },
       { time:"18:00", name:"晚餐(待補)", tag:"walk" },
-{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"walk", must:true, note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
+{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"cable", must:true, note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
     ]},
     { date:"12/25", iso:"2026-12-25", wk:"五", city:"kokura", scene:"xmas", title:"最後一天,搭夜間班機回台", sample:true, items:[
-{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", must:true, note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", must:true, note:"市場營業到15:00,週五10:00起(有資料寫9:00)有「活きいき馬関街」,賣完就收", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", must:true, note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"plane" }
+{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", must:true, note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", must:true, note:"市場營業到15:00,週五10:00起(有資料寫9:00)有「活きいき馬関街」,賣完就收", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", must:true, note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"takeoff" }
     ]}
   ],
 
@@ -524,7 +530,14 @@ const store = {
   set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const TAGNAME = {plane:"飛機", train:"電車", bus:"巴士", car:"自駕", walk:"步行", taxi:"計程車"};
+const TAGNAME = {plane:"抵達", takeoff:"起飛", train:"電車", bus:"巴士", car:"自駕", walk:"步行", taxi:"計程車", cable:"纜車", boat:"划船"};
+const TAGICON = {"boat": "<path d=\"M3 17H33L28 24Q18 27 8 24Z\" fill=\"#F6D27A\"/><circle cx=\"18\" cy=\"7\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 10.5V17M18 12.5L12 16M18 12.5L25 15\" fill=\"none\"/><path d=\"M5 27q4-3 8 0t8 0t8 0\" fill=\"none\"/>", "car": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "taxi": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><rect x=\"15\" y=\"2\" width=\"6\" height=\"3.5\" rx=\"1\" fill=\"#F2A497\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "walk": "<circle cx=\"18\" cy=\"5.5\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 9.5l-1 8M18 11.5l-5 3.5M18 11.5l5 3M17 17.5l-4.5 7.5M17 17.5l5.5 6\" fill=\"none\"/>", "train": "<rect x=\"7\" y=\"3\" width=\"22\" height=\"19\" rx=\"5\" fill=\"#A8D3E6\"/><rect x=\"10.5\" y=\"6.5\" width=\"15\" height=\"8\" rx=\"2\" fill=\"#fff\"/><circle cx=\"12.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><circle cx=\"23.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><path d=\"M11 25l-2 2M25 25l2 2M11 22v3M25 22v3\" fill=\"none\"/>", "bus": "<rect x=\"3\" y=\"5\" width=\"30\" height=\"17\" rx=\"4\" fill=\"#B9DAA5\"/><rect x=\"6\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"15\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"24\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><circle cx=\"10\" cy=\"23\" r=\"3\" fill=\"#fff\"/><circle cx=\"26\" cy=\"23\" r=\"3\" fill=\"#fff\"/>", "cable": "<path d=\"M2 4L34 4M18 4v5\" fill=\"none\"/><rect x=\"8\" y=\"9\" width=\"20\" height=\"15\" rx=\"3.5\" fill=\"#F2A497\"/><rect x=\"11.5\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/><rect x=\"19\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/>", "plane": "<g transform=\"rotate(14 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>", "takeoff": "<g transform=\"rotate(-16 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>"};
+function tagIcon(t){
+  const nm = TAGNAME[t] || t;
+  const body = TAGICON[t];
+  if (!body) return `<span class="tag ${esc(t)}">${esc(nm)}</span>`;
+  return `<span class="tag ico ${esc(t)}" role="img" aria-label="${esc(nm)}" title="${esc(nm)}"><svg viewBox="0 0 36 28" aria-hidden="true">${body}</svg></span>`;
+}
 const gmap = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
 const gnav = q => "https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + encodeURIComponent(q);
 
@@ -812,12 +825,43 @@ function heroAirport(){
     ${heroSuitcase(112, 202, "#F2A497", 1.25)}${heroSuitcase(248, 204, "#A8D3E6", 1.25)}
     ${heroPerson(148, 202, 1.25, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${heroPerson(204, 204, 1.25, "#F6D27A", "#A8D3E6", "#F2A497", 1)}`;
 }
+
+/* 高千穗峽: 柱狀岩壁的峽谷, 真名井瀑布落進潭水, 小船上的兩個人 */
+function sceneTakachiho(){
+  const pine = (x, y, k = 1) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round"><path d="M0 0V14" fill="none"/><path d="M0 -26L-12 -8H12Z" fill="#B9DAA5"/><path d="M0 -16L-15 4H15Z" fill="#B9DAA5"/></g>`;
+  const bperson = (x, y, k, coat, hat, scarf, d) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round"><path d="M-15 0Q-17 -34 0 -38Q17 -34 15 0Z" fill="${coat}"/><circle cx="0" cy="-48" r="11" fill="${hat}"/><circle cx="0" cy="-61" r="3.5" fill="#FFFCF6" stroke-width="${3 / k}"/><rect x="-11" y="-40" width="22" height="6" rx="3" fill="${scarf}" stroke-width="${3 / k}"/><path d="M${7 * d} -36H${14 * d}V-20L${9 * d} -22Z" fill="${scarf}" stroke-width="${3 / k}"/></g>`;
+  const cols = (xs, y1, y2) => `<g fill="none" stroke="${INK}" stroke-width="2" stroke-linecap="round" opacity=".35">${xs.map(x => `<path d="M${x} ${y1}V${y2}"/>`).join("")}</g>`;
+  return skyPart() + `
+    <path d="M92 214V96Q130 78 180 84Q232 78 264 96V214Z" fill="${STONE}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${cols([112, 134, 226, 246], 112, 150)}
+    <path d="M92 98Q130 80 180 86Q232 80 264 98V110Q232 96 180 102Q130 96 92 110Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M169 98H191L196 152H164Z" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path class="fall" d="M176 104V148M184 104V148" stroke="#A8D3E6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect y="150" width="360" height="62" fill="#A8D3E6" stroke="${INK}" stroke-width="3"/>
+    <g fill="#FFFCF6" stroke="${INK}" stroke-width="2"><circle class="spray" cx="180" cy="152" r="5"/><circle class="spray" style="animation-delay:-.9s" cx="170" cy="150" r="4"/><circle class="spray" style="animation-delay:-1.7s" cx="190" cy="150" r="3.5"/></g>
+    <path d="M0 214V58Q0 44 34 48L88 54Q104 74 98 124Q94 168 104 214Z" fill="${STONE}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${cols([18, 40, 62, 80], 76, 205)}
+    <path d="M0 58Q0 44 34 48L88 54Q96 62 97 74Q60 64 0 76Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M360 214V58Q360 44 326 48L272 54Q256 74 262 124Q266 168 256 214Z" fill="${STONE}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${cols([342, 320, 298, 280], 76, 205)}
+    <path d="M360 58Q360 44 326 48L272 54Q264 62 263 74Q300 64 360 76Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${pine(30, 62)}${pine(62, 66, .85)}${pine(330, 62)}${pine(298, 66, .85)}
+    <g class="wv" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"><path d="M112 168q10-6 20 0t20 0M214 190q10-6 20 0t20 0M118 202q8-5 16 0t16 0"/></g>
+    <g class="bob">
+      ${bperson(165, 186, .6, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${bperson(195, 186, .6, "#F6D27A", "#A8D3E6", "#F2A497", 1)}
+      <path d="M138 184H222L212 202Q180 208 148 202Z" fill="#F2A497" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M142 190H218" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"/>
+      <path d="M138 190L114 206M222 190L246 206" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/>
+    </g>`;
+}
+
 let _clipId = 0;
 const framed = (inner, vb, rx) => {
   const [x, y, w, h] = vb.split(" ").map(Number), id = "clip" + (++_clipId);
   return `<defs><clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/></clipPath></defs><g clip-path="url(#${id})">${inner}</g><rect x="${x + 1.5}" y="${y + 1.5}" width="${w - 3}" height="${h - 3}" rx="${rx - 1.5}" fill="none" stroke="${INK}" stroke-width="3"/>`;
 };
 const SCENES = {
+  takachiho:{ vb:"0 30 360 180", fn:sceneTakachiho, label:"高千穗峽的岩壁峽谷與真名井瀑布, 小船上的兩個人" },
   car:      { vb:"0 30 360 180", fn:() => sceneCar(false), label:"自駕小車沿著海岸公路, 路邊有摩艾石像" },
   udo:      { vb:"0 30 360 180", fn:sceneUdo, label:"海邊山崖洞窟裡的朱紅神社 (鵜戶神宮)" },
   onsen:    { vb:"0 30 360 180", fn:sceneOnsen, label:"冬天的露天溫泉與湯屋, 冒著蒸氣, 下著雪" },
@@ -954,9 +998,9 @@ function renderDay(animate, dir){
     `<div class="timeline">` + d.items.map(it => `
       <div class="item ${it.must?"must":""}">
         <div class="time">${esc(it.time)}</div>
-        <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
+        <div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
         ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
-        ${it.map ? `<div class="links"><a class="mini" href="${gmap(it.map)}" target="_blank" rel="noopener">地圖</a><a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ""}
+        ${it.map ? `<div class="links"><a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ""}
       </div>`).join("") + `</div>`;
   if (animate){ const c = $("#dayCard"); c.classList.remove("pop", "slideR", "slideL"); void c.offsetWidth; c.classList.add(dir < 0 ? "slideL" : "slideR"); }
 }
@@ -993,7 +1037,7 @@ $("#hotels").innerHTML = TRIP.hotels.map(h => {
     ${h.plan ? `<div class="room">${esc(h.plan)}</div>` : ""}
     ${h.tel ? `<div class="room tel">電話 <a href="tel:${esc(h.tel.replace(/[^\d+]/g,""))}">${esc(h.tel)}</a></div>` : ""}
     ${h.mapcode ? `<div class="room">Mapcode ${esc(h.mapcode)}</div>` : ""}
-    ${mapHref ? `<div class="btnrow"><a class="btn" href="${esc(mapHref)}" target="_blank" rel="noopener">Google 地圖</a><a class="btn nav" href="${esc(navHref)}" target="_blank" rel="noopener">開車導航</a></div>` : ""}
+    ${navHref ? `<div class="btnrow"><a class="btn nav" href="${esc(navHref)}" target="_blank" rel="noopener">開車導航</a></div>` : ""}
   </div>`;
 }).join("");
 
@@ -1152,7 +1196,7 @@ function buildPrintDoc(){
       <div class="timeline">${d.items.map(it => `
         <div class="item ${it.must?"must":""}">
           <div class="time">${esc(it.time)}</div>
-          <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
+          <div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
           ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
         </div>`).join("")}</div>
     </div>`).join("");
