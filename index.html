@@ -73,6 +73,10 @@ nav a:nth-child(4n+4){background:var(--green)}
 .bp-rows span:first-child{color:var(--muted);flex:none}
 .bp-rows span:last-child{text-align:right}
 .bp-rows .todo{color:var(--muted)}
+.bp-rows.one{display:flex;justify-content:space-between;align-items:baseline;gap:4px 8px;flex-wrap:wrap;font-size:14px}
+.bp-rows.one span{display:inline;text-align:left;color:inherit}
+.bp-rows.one em{font-style:normal;color:var(--muted);margin-right:4px}
+.bp-rows.one span:last-child{text-align:right;margin-left:auto}
 
 /* 日期切換 */
 .days{display:flex;gap:5px;overflow:hidden;padding:4px 2px 10px;scrollbar-width:none}
@@ -91,6 +95,8 @@ nav a:nth-child(4n+4){background:var(--green)}
 .item.must::before{background:var(--coral)}
 .item .time{font-size:14px;color:var(--muted)}
 .item .name{font-size:17px}
+.opt{margin:10px 0 0;padding-left:10px;border-left:3px solid #E3D3B0}
+.optname{font-size:16px;color:#3E3A39;margin-bottom:2px}
 .item .note{font-size:14px;color:var(--muted);margin-top:2px}
 .links{margin-top:4px}
 .mini{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:13px;color:var(--ink);text-decoration:none;margin-right:6px;background:var(--paper)}
@@ -449,25 +455,37 @@ const TRIP = {
       { time:"06:15", name:"抵達北九州機場", tag:"plane", note:"入境,領行李" },
       { time:"08:00", name:"取租車(範例)", tag:"car", note:"記得帶駕照正本+日文譯本" },
       { time:"10:00", name:"自駕前往高千穗", tag:"car", drive:"北九州機場→高千穗 約3.5~4小時(估計)" },
-{ time:"12:30", name:"停車:第1御塩井停車場", tag:"car", note:"高千穗町向山,收費1,000日圓(舊資料500),離真名井瀑布步行5分,旺季容易客滿。備用:第3大橋800日圓/第4押方500日圓,60分鐘內免費(另有說法第3大橋免費,待確認)", map:"高千穂峡 第1御塩井駐車場" },      { time:"13:00", name:"高千穗峽(步道+划船)", tag:"boat", must:true, note:"步道免費。划船30分鐘/艘,最多3人,4,100~5,100日圓(依日期變動),8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { time:"15:30", name:"天岩戶神社(西本宮)+天安河原", tag:"walk", note:"參拜免費。停車場部分收費(費用待確認)", map:"天岩戸神社 西本宮", feat:"日本神話中天照大神躲進岩洞的傳說地。西本宮隔著河谷遙拜洞窟,步行約10分鐘可到天安河原,河灘上堆滿祈願的小石塔,氣氛安靜。", drive:"高千穗峽→天岩戶神社 約15分(估計)", luck:"主打開運招福、緣分、家庭平安,祭祀太陽神天照大神,適合祈求整體運勢轉好。天安河原堆小石塔許願。" },
-      { time:"19:00(預估)", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", drive:"天岩戶神社→飯店 約2.5~3小時(估計)" }
+{ time:"13:30(預估)", name:"停車:第1御塩井停車場", tag:"car", note:"第1御塩井1,000日圓(划船報到處在場內)。第2停車場1,000日圓。第3大橋800日圓(入場後60分鐘免費)。第4押方500日圓(入場後60分鐘免費)。第5田口野免費,但步行到乘船處約30分鐘", map:"高千穂峡 第1御塩井駐車場" },      { g:"午餐", time:"時間待定", name:"A:千穗之家(食事処 千穂の家)", tag:"walk", note:"在高千穗峽步道入口旁,有流水麵,最省移動時間。營業 10:00~16:00,年中無休(舊資料);冬天有沒有流水麵沒確認。電話 0982-72-2115", place:"食事処 千穂の家 高千穂町" },
+      { g:"午餐", time:"時間待定", name:"B:ともえまる食堂", tag:"walk", note:"在高千穗神社附近,有高千穗牛炙燒丼、南蠻炸雞定食。營業 11:00~13:45(週一到週五還有 17:00~19:00),12/21 中午有開,建議 13:00 前到", place:"ともえまる食堂 高千穂町" },
+      { g:"午餐", time:"時間待定", name:"C:高千穗牛燒肉 和", tag:"walk", note:"高千穗牛。營業 11:00~14:00、17:00~20:30,週三休(12/21 週一有開)。午餐時段到 14:00,建議 13:30 前到", place:"高千穂牛焼肉 和 高千穂町" },
+      { time:"14:00", name:"高千穗峽步道(划船可選)", tag:"walk", book:"https://zh-tw-62123.site-translation.com/boat/detail.php", note:"步道免費入場,直接沿著峽谷走就能看到柱狀岩壁和真名井瀑布。划船可選,30分鐘/艘,最多3人,5,100日圓,8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { g:"神社(二選一)", time:"15:15", name:"A:高千穗神社", tag:"walk", drive:"高千穗峽→高千穗神社 約10分(估計)", note:"參拜免費,境內平緩好走,30~50分鐘能走完主要動線。每晚的夜神樂(約20:00起,成人約1,000日圓)時間與價格待確認,而且當晚要開車去宮崎,時間對不上", feat:"位置貼近鎮中心,被高大杉木環繞,環境沉穩。境內有「夫婦杉」,也能感受高千穗神樂文化。", luck:"夫婦和合、緣結、家庭圓滿。夫婦杉是兩人牽手繞樹三圈,祈求感情圓滿", map:"高千穂神社" },
+      { g:"神社(二選一)", time:"15:15", name:"B:天岩戶神社(西本宮)+天安河原", tag:"walk", note:"參拜免費。停車場部分收費(費用待確認)", map:"天岩戸神社 西本宮", feat:"日本神話中天照大神躲進岩洞的傳說地。西本宮隔著河谷遙拜洞窟,步行約10分鐘可到天安河原,河灘上堆滿祈願的小石塔,氣氛安靜。", drive:"高千穗峽→天岩戶神社 約15分(估計)", luck:"主打開運招福、緣分、家庭平安,祭祀太陽神天照大神,適合祈求整體運勢轉好。天安河原堆小石塔許願。" },
+      { time:"19:30(預估)", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", drive:"天岩戶神社→飯店 約2.5~3小時(估計)" },
+      { g:"晚餐", time:"晚上(時間待定)", name:"A:ぐんけい 隠蔵", tag:"walk", note:"地頭雞炭火燒、雞肉刺身,從飯店步行約10分鐘。如果超過20:00才到市區,B、C 比較保險。營業 17:00~24:00(最後點餐23:00),不定休,建議先訂位,電話 0985-28-4365", place:"ぐんけい 隠蔵 宮崎市" },
+      { g:"晚餐", time:"晚上(時間待定)", name:"B:新鮮やきとり 恵屋プラス", tag:"walk", note:"庶民串燒居酒屋,出餐快,有炭烤雞肉串、南蠻炸雞、肉捲飯糰。宮崎市有「恵屋プラス」系列分店(昭和町店、大塚店等),另一份查核寫多數週一 17:00 起營業,我自己沒查到", place:"新鮮やきとり 恵屋プラス 宮崎市" },
+      { g:"晚餐", time:"晚上(時間待定)", name:"C:辛麺屋 桝元", tag:"walk", note:"辛麵,辣度從0辛到30辛可選,不吃辣可點0辛。中央通店 19:00 才開,營業到隔天凌晨3:00(週五到週日到4:00),無休", place:"辛麺屋 桝元 宮崎市" },
+      { g:"晚餐", time:"晚上(時間待定)", name:"D:おぐら 本店", tag:"walk", note:"元祖南蠻炸雞定食。營業 11:00~15:00(最後點餐14:30)、17:00~20:30(最後點餐19:50);週二和第1、3週三休,12/21 是週一有開。19:30 入住後再過去很趕,電話 0985-22-2296", place:"おぐら 本店 宮崎市" }
     ]},
     { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"car", title:"宮崎一日(景點待補)", sample:true, items:[
-      { time:"10:00", name:"日南太陽花園(サンメッセ日南)", tag:"car", must:true, note:"成人1,000日圓。9:30~17:00,週三休。停車場免費", map:"サンメッセ日南", feat:"七尊摩艾像面向太平洋,是獲得智利復活節島長老會正式許可複製的。站在山丘上能看到整片日南海岸,拍照很出片。", drive:"飯店→日南太陽花園 約50分(估計)" },
-      { time:"12:30", name:"午餐:宮崎名物(待補)", tag:"walk" },
-      { time:"下午(時間待定)", name:"鵜戶神宮", tag:"car", must:true, note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"傍晚(時間待定)", name:"飫肥城跡", tag:"walk", must:true, note:"停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" }
+      { time:"早上(時間待定)", name:"早餐:拉麺男(ラーメンマン)", tag:"walk", note:"宮崎早上吃拉麵的在地習慣。營業 06:00~21:00,週四休(12/22 週二有開)。10:00 要去日南太陽花園,吃完再出發時間夠", place:"ラーメンマン 宮崎市" },
+      { time:"10:00", name:"日南太陽花園(サンメッセ日南)", tag:"car", note:"成人1,000日圓。9:30~17:00,週三休。停車場免費", map:"サンメッセ日南", feat:"七尊摩艾像面向太平洋,是獲得智利復活節島長老會正式許可複製的。站在山丘上能看到整片日南海岸,拍照很出片。", drive:"飯店→日南太陽花園 約50分(估計)" },
+      { g:"午餐", time:"12:30", name:"A:營養軒", tag:"walk", note:"宮崎拉麵老店。營業 10:30~23:30,週一休息(12/22 是週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"營養軒 宮崎市" },
+      { g:"午餐", time:"12:30", name:"B:さといも", tag:"walk", note:"宮崎拉麵。營業 10:30~22:00,週三休息(12/22 週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"さといも 宮崎市" },
+      { g:"午餐", time:"12:30", name:"C:風来軒 本店", tag:"walk", note:"宮崎拉麵。營業 11:00~22:00,每天都開", place:"拉麺 風来軒 本店 宮崎市" },
+      { g:"午餐", time:"12:30", name:"D:拉麺男(ラーメンマン)", tag:"walk", note:"宮崎拉麵。營業 06:00~21:00,週四休(12/22 週二有開)", place:"ラーメンマン 宮崎市" },
+      { time:"下午(時間待定)", name:"鵜戶神宮", tag:"car", note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"傍晚(時間待定)", name:"飫肥城跡", tag:"walk", note:"停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" }
     ]},
     { date:"12/23", iso:"2026-12-23", wk:"三", city:"oita", scene:"onsen", title:"前往大分(地點待確認)", sample:true, items:[
       { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認" }
     ]},
     { date:"12/24", iso:"2026-12-24", wk:"四", city:"kokura", scene:"sarakura", title:"小倉散步", sample:true, items:[
-      { time:"10:00", name:"小倉城(範例)", tag:"walk", must:true, map:"小倉城" },
-      { time:"13:00", name:"旦過市場(範例)", tag:"walk", must:true, map:"旦過市場" },
+      { time:"10:00", name:"小倉城(範例)", tag:"walk", map:"小倉城" },
+      { time:"13:00", name:"旦過市場(範例)", tag:"walk", map:"旦過市場" },
       { time:"18:00", name:"晚餐(待補)", tag:"walk" },
-{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"cable", must:true, note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
+{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"cable", note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
     ]},
     { date:"12/25", iso:"2026-12-25", wk:"五", city:"kokura", scene:"xmas", title:"最後一天,搭夜間班機回台", sample:true, items:[
-{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", must:true, note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", must:true, note:"市場營業到15:00,週五10:00起(有資料寫9:00)有「活きいき馬関街」,賣完就收", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", must:true, note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"takeoff" }
+{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", note:"市場營業到15:00,賣完就收。「活きいき馬関街」週五到週日與假日舉辦,但年末年始不辦,12/25 是否舉辦待確認(唐戶市場 083-231-0001)", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"takeoff" }
     ]}
   ],
 
@@ -887,7 +905,7 @@ $("#flights").innerHTML = TRIP.flights.map((f,i) => {
       <div class="bp-end r"><div class="bp-code">${esc(f.to)}</div><div class="bp-time">${esc(f.arr)}${f.arrDate ? `<sup class="plus1">+1</sup>` : ""}</div><div class="bp-city">${esc(f.toCity)}</div></div>
     </div>
     <div class="bp-cut"></div>
-    <div class="bp-rows">${row("託運行李", f.bag)}${row("旅遊類型", f.fare)}</div>
+    <div class="bp-rows one"><span><em>託運行李:</em>${esc(f.bag || "待補")}</span></div>
   </div>`;
 }).join("");
 
@@ -983,6 +1001,27 @@ function moveVehicle(i, instant){
   const svg = $("#roadSvg");
   if (!instant){ svg.classList.add("go"); clearTimeout(moveVehicle.t); moveVehicle.t = setTimeout(() => svg.classList.remove("go"), 850); }
 }
+function groupItems(items){
+  const out = [];
+  items.forEach(it => {
+    const last = out[out.length - 1];
+    if (it.g && last && last.g === it.g) last.opts.push(it);
+    else if (it.g) out.push({ g: it.g, time: it.time, tag: it.tag, opts: [it] });
+    else out.push(it);
+  });
+  return out;
+}
+function itemBody(it, links){
+  return (it.note ? `<div class="note">${esc(it.note)}</div>` : "") + (it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : "") + (it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : "") + (it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : "") +
+    (links && (it.map || it.book || it.place) ? `<div class="links">${it.map ? `<a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a>` : ""}${it.place ? `<a class="mini nav" href="${gmap(it.place)}" target="_blank" rel="noopener">地圖(看菜單)</a>` : ""}${it.book ? `<a class="mini" href="${esc(it.book)}" target="_blank" rel="noopener">預約</a>` : ""}</div>` : "");
+}
+function itemBlock(it, links){
+  if (it.opts) {
+    return `<div class="item"><div class="time">${esc(it.time)}</div><div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.g)}</div>` +
+      it.opts.map(o => `<div class="opt"><div class="optname">${esc(o.name)}</div>${itemBody(o, links)}</div>`).join("") + `</div>`;
+  }
+  return `<div class="item ${it.must?"must":""}"><div class="time">${esc(it.time)}</div><div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>${itemBody(it, links)}</div>`;
+}
 function renderDays(){
   $("#days").innerHTML = TRIP.days.map((d,i) =>
     `<button class="daybtn ${i===cur?"on":""}" role="tab" aria-selected="${i===cur}" data-i="${i}"><small>週${esc(d.wk)}</small><b>${esc(d.date)}</b></button>`).join("");
@@ -995,13 +1034,7 @@ function renderDay(animate, dir){
     `<div class="daytitle">Day ${cur+1} · ${esc(d.title)}</div>` +
     (w ? `<div class="dayweather">${esc(CITIES[d.city].name)} ${wxText(w)}</div>` : "") +
     (d.sample ? `<div class="sample">這天內容是範例,之後請改成真正的安排</div>` : "") +
-    `<div class="timeline">` + d.items.map(it => `
-      <div class="item ${it.must?"must":""}">
-        <div class="time">${esc(it.time)}</div>
-        <div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
-        ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
-        ${it.map ? `<div class="links"><a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ""}
-      </div>`).join("") + `</div>`;
+    `<div class="timeline">` + groupItems(d.items).map(it => itemBlock(it, true)).join("") + `</div>`;
   if (animate){ const c = $("#dayCard"); c.classList.remove("pop", "slideR", "slideL"); void c.offsetWidth; c.classList.add(dir < 0 ? "slideL" : "slideR"); }
 }
 function setDay(i){
@@ -1193,12 +1226,7 @@ function buildPrintDoc(){
     <div class="pd-day card">
       ${d.scene ? sceneSvg(d.scene, "banner") : ""}
       <div class="daytitle">${esc(d.date)} 週${esc(d.wk)} · Day ${i+1} · ${esc(d.title)}</div>
-      <div class="timeline">${d.items.map(it => `
-        <div class="item ${it.must?"must":""}">
-          <div class="time">${esc(it.time)}</div>
-          <div class="name">${it.tag ? tagIcon(it.tag) : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
-          ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
-        </div>`).join("")}</div>
+      <div class="timeline">${groupItems(d.items).map(it => itemBlock(it, false)).join("")}</div>
     </div>`).join("");
   const tiles = $(".lg-tiles").outerHTML;
   $("#printDoc").innerHTML = `
