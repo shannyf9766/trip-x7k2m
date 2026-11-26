@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>北九州宮崎之旅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Iansui&family=Caveat:wght@700&family=Huninn&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FFFCF6; --ink:#3E3A39;
+  --coral:#F2A497; --yellow:#F6D27A; --water:#A8D3E6; --green:#B9DAA5;
+  --muted:#8a8480;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:68px}
+body{background:var(--paper);color:var(--ink);font-family:"Iansui","Huninn","PingFang TC","Noto Sans TC",sans-serif;line-height:1.6;font-size:16px;padding-bottom:40px}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px}
+section{padding-top:28px}
+h2{font-size:22px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+h2 .dot{width:14px;height:14px;border-radius:50%;border:3px solid var(--ink);background:var(--coral);flex:none}
+.card{background:#FFFFFF;border:3px solid var(--ink);border-radius:24px;padding:16px;margin-bottom:14px}
+.pill{border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:13px;background:var(--paper);display:inline-block}
+
+/* 選單 */
+nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:3px solid var(--ink)}
+nav .wrap{display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{flex:none;color:var(--ink);text-decoration:none;border:3px solid var(--ink);border-radius:999px;padding:2px 14px;font-size:15px;background:var(--paper)}
+nav a:nth-child(4n+1){background:var(--coral)}
+nav a:nth-child(4n+2){background:var(--yellow)}
+nav a:nth-child(4n+3){background:var(--water)}
+nav a:nth-child(4n+4){background:var(--green)}
+
+/* 首頁 */
+.hero{padding-top:18px}
+.hero .scene{line-height:0}
+.hero svg{display:block;width:100%;height:auto}
+.hero h1{font-size:30px;margin:14px 0 2px;text-align:center}
+.hero .sub{text-align:center;color:var(--muted);margin-bottom:12px}
+.count{display:flex;gap:8px;justify-content:center}
+.count div{flex:1;border:3px solid var(--ink);border-radius:18px;text-align:center;padding:6px 0}
+.count div:nth-child(1){background:var(--coral)}
+.count div:nth-child(2){background:var(--yellow)}
+.count div:nth-child(3){background:var(--water)}
+.count div:nth-child(4){background:var(--green)}
+.count b{display:block;font-size:26px;line-height:1.2}
+.count span{font-size:13px}
+.count-title{text-align:center;margin:14px 0 8px}
+
+/* 登機證 */
+.sec-note{font-size:14px;color:var(--muted);margin:-6px 0 12px}
+.bp{border:3px solid var(--ink);border-radius:26px;overflow:hidden;background:#FFFFFF;box-shadow:5px 6px 0 var(--ink);margin:0 5px 20px 0}
+.bp-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:10px 16px;border-bottom:3px solid var(--ink)}
+.bp.out .bp-head{background:var(--coral)}
+.bp.back .bp-head{background:var(--water)}
+.bp-head .l{font-size:18px}
+.bp-head .r{text-align:right;font-size:14px;line-height:1.4}
+.bp-main{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:14px 16px 12px}
+.bp-end{flex:0 0 30%;min-width:0}
+.bp-end.r{text-align:right}
+.bp-code{font-size:38px;line-height:1.05}
+.bp-time{font-size:26px;line-height:1.25}
+.bp-time small{font-size:13px;color:var(--muted);margin-left:4px}
+.bp-city{font-size:14px;color:var(--muted)}
+.bp-mid{flex:1;text-align:center;font-size:16px;color:var(--muted);line-height:1.5;padding:0 4px}
+.bp-mid svg{width:100%;max-width:190px;height:auto;display:block;margin:0 auto 4px}
+.bp-cut{border-top:3px dashed var(--ink)}
+.bp-rows{padding:8px 16px 12px}
+.bp-rows div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:15px}
+.bp-rows span:first-child{color:var(--muted);flex:none}
+.bp-rows span:last-child{text-align:right}
+.bp-rows .todo{color:var(--muted)}
+
+/* 日期切換 */
+.days{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.daybtn{flex:none;font:inherit;color:var(--ink);cursor:pointer;border:3px solid var(--ink);border-radius:20px;background:#FFFFFF;padding:4px 18px;text-align:center;min-width:96px}
+.daybtn small{display:block;font-size:12px;color:var(--muted)}
+.daybtn b{font-size:20px;line-height:1.1;display:block}
+.daybtn.on{background:var(--coral)}
+.daybtn.on small{color:var(--ink)}
+.daytitle{font-size:19px;margin:4px 0 8px}
+.dayweather{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 12px;font-size:14px;background:var(--water);margin-bottom:12px}
+.timeline{position:relative;padding-left:22px}
+.timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;border-left:3px dashed var(--ink)}
+.item{position:relative;margin-bottom:12px}
+.item::before{content:"";position:absolute;left:-22px;top:14px;width:14px;height:14px;border-radius:50%;border:3px solid var(--ink);background:var(--yellow)}
+.item.must::before{background:var(--coral)}
+.item .time{font-size:14px;color:var(--muted)}
+.item .name{font-size:17px}
+.item .note{font-size:14px;color:var(--muted);margin-top:2px}
+.links{margin-top:4px}
+.mini{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:13px;color:var(--ink);text-decoration:none;margin-right:6px;background:var(--paper)}
+.mini.nav{background:var(--yellow)}
+.tag{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:12px;margin-right:6px;vertical-align:middle}
+.tag.plane{background:var(--coral)}
+.tag.train{background:var(--water)}
+.tag.bus{background:var(--green)}
+.tag.car{background:var(--yellow)}
+.tag.walk{background:var(--paper)}
+.tag.taxi{background:var(--paper)}
+.must-badge{display:inline-block;background:var(--coral);border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:12px;vertical-align:middle}
+.pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes pop{0%{transform:scale(.96) translateY(8px);opacity:0}100%{transform:none;opacity:1}}
+.sample{font-size:13px;color:var(--muted);border:3px dashed var(--ink);border-radius:16px;padding:6px 12px;margin-bottom:12px;background:var(--yellow)}
+
+/* 天氣 */
+.wx{width:100%}
+.wxrow{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:3px dashed var(--ink)}
+.wxrow:last-child{border-bottom:0}
+.wxrow .d{flex:none;width:76px;font-size:15px;line-height:1.3}
+.wxrow .d small{display:block;color:var(--muted);font-size:12px}
+.wxrow .i{font-size:28px;flex:none;width:36px;text-align:center}
+.wxrow .t{flex:1;font-size:15px}
+.wxrow .t small{display:block;color:var(--muted);font-size:12px}
+.wxrow .p{flex:none;font-size:14px;border:3px solid var(--ink);border-radius:999px;padding:0 10px;background:var(--water)}
+.wxrow.na{color:var(--muted)}
+.wxstatus{font-size:13px;color:var(--muted);margin-bottom:6px}
+.btnrow{margin-top:8px}
+.btn{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:2px 14px;text-decoration:none;color:var(--ink);background:var(--green);font-size:14px;margin:6px 6px 0 0}
+.btn.nav{background:var(--yellow)}
+.btn.blue{background:var(--water)}
+
+/* 清單 */
+.check{list-style:none}
+.check li{display:flex;align-items:flex-start;gap:10px;padding:6px 0}
+.check input{appearance:none;-webkit-appearance:none;flex:none;width:24px;height:24px;border:3px solid var(--ink);border-radius:8px;background:var(--paper);margin-top:2px;cursor:pointer;position:relative}
+.check input:checked{background:var(--green)}
+.check input:checked::after{content:"";position:absolute;left:5px;top:0;width:6px;height:12px;border:solid var(--ink);border-width:0 3px 3px 0;transform:rotate(45deg)}
+.check label{flex:1;cursor:pointer}
+.check li.done label{text-decoration:line-through;color:var(--muted)}
+.progress{height:14px;border:3px solid var(--ink);border-radius:999px;overflow:hidden;margin-bottom:10px;background:var(--paper)}
+.progress i{display:block;height:100%;background:var(--green);width:0;transition:width .4s}
+.group{font-size:15px;margin:10px 0 2px}
+
+/* 住宿 */
+.hotel h3{font-size:18px}
+.hotel .where{color:var(--muted);font-size:14px}
+.hotel .dates{margin:8px 0;display:flex;gap:6px;flex-wrap:wrap}
+.hotel .room{font-size:14px;margin-top:6px}
+.hotel .tel a{color:var(--ink)}
+.hotel.warn{background:var(--yellow)}
+footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+
+/* 插圖動畫 */
+.skyplane{animation:fly 40s linear infinite}
+.bob{animation:bob 4s ease-in-out infinite}
+.palm{animation:sway 5s ease-in-out infinite;transform-origin:70px 150px}
+.wave{animation:wave 4s ease-in-out infinite}
+@keyframes fly{from{transform:translateX(-225px)}to{transform:translateX(262px)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-3px) rotate(.6deg)}}
+@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@keyframes wave{0%,100%{transform:translateX(0)}50%{transform:translateX(-10px)}}
+
+.far{animation:scroll 80s linear infinite}
+.near{animation:scroll 16s linear infinite}
+.sea{animation:scroll 30s linear infinite}
+.road{animation:dash 1.2s linear infinite}
+.car{animation:bounce .55s ease-in-out infinite}
+.wheel{animation:spin .7s linear infinite;transform-box:fill-box;transform-origin:center}
+.puff{animation:puff 1.8s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.steam{animation:rise 3.5s ease-in-out infinite}
+.steam2{animation:rise 4.5s ease-in-out infinite;animation-delay:-1.5s}
+.wv{animation:wv 4s ease-in-out infinite}
+@keyframes scroll{to{transform:translateX(-360px)}}
+@keyframes dash{to{stroke-dashoffset:-26}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes puff{0%{transform:translate(0,0) scale(.5);opacity:.9}100%{transform:translate(-30px,-8px) scale(1.5);opacity:0}}
+@keyframes rise{0%{transform:translateY(6px);opacity:0}30%{opacity:.95}100%{transform:translateY(-16px);opacity:0}}
+@keyframes wv{0%,100%{transform:translateX(0)}50%{transform:translateX(-8px)}}
+.toss{animation:toss 3s ease-in-out infinite}
+.tw{animation:tw 2.4s ease-in-out infinite}
+.tw2{animation:tw 3.1s ease-in-out infinite;animation-delay:-1s}
+.tw3{animation:tw 1.9s ease-in-out infinite;animation-delay:-.5s}
+.blink{animation:tw 1.2s ease-in-out infinite}
+.slope{animation:slope 9s ease-in-out infinite alternate}
+.snow{animation:snow 6s linear infinite}
+.rl{animation:tw 1.4s ease-in-out infinite}
+.takeoff{animation:takeoff 14s ease-in infinite}
+@keyframes toss{0%{transform:translate(0,0);opacity:0}10%{opacity:1}50%{transform:translate(20px,-34px)}85%{transform:translate(39px,-2px);opacity:1}100%{transform:translate(39px,0);opacity:0}}
+@keyframes tw{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes slope{to{transform:translate(70px,-64px)}}
+@keyframes snow{0%{transform:translate(0,-6px);opacity:0}10%{opacity:1}100%{transform:translate(-10px,110px);opacity:0}}
+@keyframes takeoff{0%{transform:translate(-140px,0) rotate(0deg)}55%{transform:translate(170px,0) rotate(0deg)}100%{transform:translate(440px,-90px) rotate(-12deg)}}
+.spray{animation:spray 2.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.ship{animation:ship 30s ease-in-out infinite alternate}
+.cabin{animation:cabin 11s ease-in-out infinite alternate}
+@keyframes spray{0%{transform:translateY(8px) scale(.4);opacity:0}25%{opacity:.95}100%{transform:translateY(-22px) scale(1.2);opacity:0}}
+@keyframes ship{to{transform:translateX(120px)}}
+@keyframes cabin{to{transform:translate(96px,47px)}}
+.train{animation:train 14s linear infinite}
+@keyframes train{from{transform:translateX(-130px)}to{transform:translateX(400px)}}
+.star{animation:star 3s ease-in-out infinite}
+@keyframes star{0%,100%{opacity:1}50%{opacity:.6}}
+.gull{animation:gull 24s linear infinite}
+@keyframes gull{from{transform:translateX(-90px)}to{transform:translateX(420px)}}
+.wxextra{margin:12px 0 2px;padding-top:10px;border-top:3px solid var(--ink);font-size:14px;color:var(--muted)}
+.wxmini{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
+.mc{flex:1 0 64px;border:3px solid var(--ink);border-radius:14px;padding:2px 4px;text-align:center;font-size:13px;line-height:1.3}
+.mc b{display:block;font-weight:400}.mc span{display:block;font-size:20px}.mc small{color:var(--muted);font-size:12px}.mc.na{color:var(--muted)}
+.count b,.bp-time,.daybtn b,.item .time,.wxrow .d,.mc b{font-family:"Caveat","Iansui",cursive;font-weight:700}
+.count b{font-size:36px;line-height:1.1}
+.bp-time{font-size:34px}
+.bp-time small{font-family:"Iansui",sans-serif;font-weight:400}
+.daybtn b{font-size:27px;line-height:1}
+.item .time{font-size:19px}
+.wxrow .d{font-size:19px}
+.wxrow .d small{font-family:"Iansui",sans-serif;font-weight:400}
+.mc b{font-size:17px}
+.road{background:#FFFFFF;border:3px solid var(--ink);border-radius:20px;padding:4px 6px 0;margin:2px 0 12px;overflow:hidden}
+.road svg{display:block;width:100%;height:auto}
+.road .dot{cursor:pointer}
+#veh{transition:transform .8s cubic-bezier(.5,1.35,.5,1)}
+.go .wheel{animation:spin .45s linear infinite;transform-box:fill-box;transform-origin:center}
+.slideR{animation:inR .45s cubic-bezier(.2,.9,.3,1.2) both}
+.slideL{animation:inL .45s cubic-bezier(.2,.9,.3,1.2) both}
+@keyframes inR{from{transform:translateX(60px);opacity:0}to{transform:none;opacity:1}}
+@keyframes inL{from{transform:translateX(-60px);opacity:0}to{transform:none;opacity:1}}
+#dayCard{touch-action:pan-y}
+#ledger label{display:block;font-size:14px;color:var(--muted);margin:8px 0 2px}
+#ledger input[type=text],#ledger input[type=number],#ledger select,#ledger textarea{width:100%;font:inherit;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:4px 10px;background:#FFFFFF}
+.lg-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.lg-tile{border:3px solid var(--ink);border-radius:18px;padding:6px 10px;text-align:center}
+.lg-big{display:block;font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:34px;line-height:1.1}
+.lg-tile small{font-size:12px}
+.lg-t1{background:var(--coral)}.lg-t2{background:var(--yellow)}.lg-t3{background:var(--water)}.lg-t4{background:var(--green)}
+.lg-bar{height:14px;border:3px solid var(--ink);border-radius:999px;overflow:hidden;background:#FFFFFF;margin:4px 0 2px}
+.lg-bar i{display:block;height:100%;background:var(--green);width:0;transition:width .5s}
+.lg-bar.over i{background:var(--coral)}
+.lg-grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.lg-chk{display:flex;gap:10px;flex-wrap:wrap}
+#ledger .lg-chk label{display:flex;align-items:center;gap:4px;color:var(--ink);margin:0;border:3px solid var(--ink);border-radius:999px;padding:0 10px;cursor:pointer}
+.lg-chk input{accent-color:var(--coral)}
+.lg-hint{color:var(--muted);font-size:13px;margin-top:6px}
+.lg-title{font-size:19px;margin-bottom:6px}
+.lg-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.lg-btn{font:inherit;color:var(--ink);border:3px solid var(--ink);border-radius:999px;background:var(--green);padding:2px 16px;cursor:pointer}
+.lg-btn.lg-y{background:var(--yellow)}.lg-btn.lg-w{background:#FFFFFF}.lg-btn.lg-c{background:var(--coral)}
+.lg-btn:active{transform:scale(.96)}
+.lg-dayhead{display:flex;justify-content:space-between;border-bottom:3px dashed var(--ink);padding:6px 0 2px;margin-top:8px}
+.lg-num{font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:21px}
+.lg-entry{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:3px dashed #e6e0d4}
+.lg-m{flex:1;min-width:0;font-size:15px}
+.lg-m small{display:block;color:var(--muted);font-size:12px}
+.lg-a{font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:21px;text-align:right;line-height:1.1}
+.lg-a small{display:block;font-size:12px;color:var(--muted);font-family:"Iansui",sans-serif;font-weight:400}
+.lg-x{font:inherit;border:3px solid var(--ink);border-radius:50%;width:28px;height:28px;background:#FFFFFF;cursor:pointer;line-height:1;color:var(--ink)}
+.lg-tag{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 8px;font-size:12px;margin-right:4px}
+.lg-debt{padding:4px 0;font-size:17px}
+#lg-msg{min-height:24px;font-size:14px;color:#3b6d11;margin-top:6px}
+.banner{display:block;width:100%;height:auto;margin-bottom:12px}
+
+#printDoc{display:none}
+@media print{
+  @page{size:A4;margin:12mm}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.printing nav,body.printing .wrap{display:none!important}
+  body.printing #printDoc{display:block;max-width:none}
+  #printDoc .pd-title{text-align:center;margin:0 0 14px}
+  #printDoc .pd-title h1{margin:0;font-size:26px}
+  #printDoc .pd-title p{margin:4px 0 0;color:#777}
+  #printDoc h2{margin:18px 0 8px;font-size:18px}
+  #printDoc .pd-day{break-inside:avoid;page-break-inside:avoid;margin-bottom:14px}
+  #printDoc .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;page-break-inside:avoid;margin-bottom:10px}
+  #printDoc .links,#printDoc .btnrow,#printDoc .sample{display:none!important}
+  #printDoc .pd-break{break-before:page;page-break-before:always}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a href="#top">首頁</a><a href="#flight">航班</a><a href="#plan">行程</a><a href="#weather">天氣</a>
+  <a href="#todo">待辦</a><a href="#hotel">住宿</a><a href="#before">出發前</a><a href="#pack">行李</a><a href="#ledger">記帳</a>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ===== 首頁 ===== -->
+<section class="hero" id="top">
+  <div class="scene" id="heroScene"></div>
+  <h1>北九州 × 宮崎之旅</h1>
+  <p class="sub">2026.12.21-12.25 | 4天4夜</p>
+  <p class="count-title" id="countTitle">距離出發還有</p>
+  <div class="count" id="count">
+    <div><b id="cd">--</b><span>天</span></div>
+    <div><b id="ch">--</b><span>小時</span></div>
+    <div><b id="cm">--</b><span>分</span></div>
+    <div><b id="cs">--</b><span>秒</span></div>
+  </div>
+</section>
+
+<!-- ===== 航班 ===== -->
+<section id="flight">
+  <h2><span class="dot"></span>航班</h2>
+  <p class="sec-note">時間皆為當地時間</p>
+  <div id="flights"></div>
+</section>
+
+<!-- ===== 每日行程 ===== -->
+<section id="plan">
+  <h2><span class="dot" style="background:var(--yellow)"></span>每日行程</h2>
+  <div class="days" id="days" role="tablist"></div>
+  <div class="road"><svg id="roadSvg" viewBox="0 0 360 64" role="img" aria-label="小公路: 選到哪天,交通工具就開到那天"></svg></div>
+  <div class="card" id="dayCard"></div>
+</section>
+
+<!-- ===== 天氣 ===== -->
+<section id="weather">
+  <h2><span class="dot" style="background:var(--water)"></span>天氣預報</h2>
+  <div class="card">
+    <div class="wxstatus" id="wxstatus">讀取中...</div>
+    <div id="wxlist"></div>
+    <div class="btnrow" id="wxlinks"></div>
+  </div>
+</section>
+
+<!-- ===== 待辦 ===== -->
+<section id="todo">
+  <h2><span class="dot" style="background:var(--green)"></span>待辦清單</h2>
+  <div class="card"><div class="progress"><i id="p-todo"></i></div><ul class="check" id="l-todo"></ul></div>
+</section>
+
+<!-- ===== 住宿 ===== -->
+<section id="hotel">
+  <h2><span class="dot"></span>住宿資訊</h2>
+  <div id="hotels"></div>
+</section>
+
+<!-- ===== 出發前 ===== -->
+<section id="before">
+  <h2><span class="dot" style="background:var(--yellow)"></span>出發前清單</h2>
+  <div class="card"><div class="progress"><i id="p-before"></i></div><ul class="check" id="l-before"></ul></div>
+</section>
+
+<!-- ===== 行李 ===== -->
+<section id="pack">
+  <h2><span class="dot" style="background:var(--water)"></span>行李清單</h2>
+  <div class="card"><div class="progress"><i id="p-pack"></i></div><div id="l-pack"></div></div>
+</section>
+
+<!-- ===== 記帳 ===== -->
+<section id="ledger">
+  <h2><span class="dot" style="background:var(--coral)"></span>記帳</h2>
+  <div class="lg-tiles">
+    <div class="lg-tile lg-t1"><span class="lg-big" id="lg-total">0</span><small>總花費(台幣)</small></div>
+    <div class="lg-tile lg-t2"><span class="lg-big" id="lg-jpy">0</span><small>日幣合計</small></div>
+    <div class="lg-tile lg-t3"><span class="lg-big" id="lg-left">-</span><small>預算剩餘(台幣)</small></div>
+    <div class="lg-tile lg-t4"><span class="lg-big" id="lg-count">0</span><small>筆數</small></div>
+  </div>
+  <div class="card">
+    <div class="lg-bar" id="lg-bar"><i id="lg-barI"></i></div>
+    <div class="lg-hint" id="lg-barT"></div>
+    <div class="lg-grid2">
+      <div><label for="lg-rate">匯率(1日幣=幾元台幣)</label><input type="number" id="lg-rate" step="0.001" inputmode="decimal"></div>
+      <div><label for="lg-budget">整趟預算上限(台幣,選填)</label><input type="number" id="lg-budget" inputmode="numeric"></div>
+    </div>
+    <label>同行的人</label>
+    <div class="lg-grid2" id="lg-people"></div>
+  </div>
+  <div class="card">
+    <div class="lg-grid2">
+      <div><label for="lg-amt">金額</label><input type="number" id="lg-amt" inputmode="decimal" placeholder="例如3200"></div>
+      <div><label for="lg-cur">幣別</label><select id="lg-cur"><option value="JPY">日幣</option><option value="TWD">台幣</option></select></div>
+      <div><label for="lg-day">哪一天</label><select id="lg-day"></select></div>
+      <div><label for="lg-cat">分類</label><select id="lg-cat"><option>餐飲</option><option>交通</option><option>購物</option><option>住宿</option><option>門票</option><option>其他</option></select></div>
+      <div><label for="lg-pay">付款方式</label><select id="lg-pay"><option>現金</option><option>信用卡</option><option>交通IC卡</option></select></div>
+      <div><label for="lg-who">誰付的</label><select id="lg-who"></select></div>
+    </div>
+    <label>分攤給誰(平均分)</label>
+    <div class="lg-chk" id="lg-split"></div>
+    <label for="lg-note">備註</label><input type="text" id="lg-note" placeholder="例如午餐拉麵">
+    <div class="lg-row" style="margin-top:12px"><button class="lg-btn lg-c" id="lg-add">新增一筆</button><span class="lg-hint" id="lg-addMsg"></span></div>
+  </div>
+  <div class="card"><div class="lg-title">誰要給誰</div><div id="lg-debts"></div><div class="lg-hint">只計算有勾選分攤的項目,平均分,換算成台幣</div></div>
+  <div class="card"><div class="lg-title">明細</div><div id="lg-list"></div></div>
+  <div class="card">
+    <div class="lg-title">備份與分享</div>
+    <div class="lg-row">
+      <button class="lg-btn" id="lg-copy">複製成文字</button>
+      <button class="lg-btn lg-y" id="lg-share">分享</button>
+      <button class="lg-btn lg-w" id="lg-dl">下載備份檔</button>
+    </div>
+    <label for="lg-box">匯入:貼上備份文字或選備份檔</label>
+    <textarea id="lg-box" rows="3" placeholder="貼上之前複製的備份文字"></textarea>
+    <div class="lg-row" style="margin-top:8px"><button class="lg-btn lg-w" id="lg-imp">匯入文字</button><input type="file" id="lg-file" accept=".json,application/json" style="max-width:220px"><button class="lg-btn lg-w" id="lg-reset">清空明細</button></div>
+    <div id="lg-msg"></div>
+    <div class="lg-hint">資料只存在這支手機的這個瀏覽器,換手機或清除瀏覽器資料前,請先按下載備份檔或複製成文字</div>
+  </div>
+</section>
+
+<!-- ===== 匯出 PDF ===== -->
+<section id="pdf">
+  <h2><span class="dot" style="background:var(--green)"></span>旅行紀念 PDF</h2>
+  <div class="card">
+    <div class="lg-hint" style="margin-bottom:10px">旅遊完後按下去,會把航班、每日行程、住宿、記帳整理成一份 PDF。在跳出的視窗把「目的地/印表機」選成「另存為 PDF」再儲存。</div>
+    <button class="lg-btn lg-c" id="pdfBtn">下載成 PDF</button>
+  </div>
+</section>
+
+<footer>祝旅途愉快✿臭豬不可以當瑞比</footer>
+</div>
+<div id="printDoc"></div>
+
+<script>
+/* ==========================================================
+   [資料區] 要補或改行程,只需要改這一段(不用動下面的程式)
+   - 符號請一律用半型 ( ) , / :
+   - tag 可用: plane 飛機/train 電車/bus 巴士/car 自駕/walk 步行/taxi 計程車
+   - must:true 會標"必去"
+   - map:"地點名稱" 會自動出現"地圖"與"導航"按鈕(Google地圖,自駕模式)
+   - city: miyazaki / oita / kokura,決定該天顯示哪個城市的天氣 (大分已先登記, 去大分那天就把該天的 city 改成 oita)
+   - scene: car 自駕摩艾 / udo 鵜戶神宮 / onsen 溫泉 / sarakura 皿倉山夜景 / xmas 雪夜聖誕,該天卡片上方的小插圖(不填就沒有)
+   - 標示"範例"的內容是先放的示意,請改成真正的安排
+   ========================================================== */
+const TRIP = {
+  start: "2026-12-21T03:00:00+08:00",   // 出發倒數的基準(去程起飛時間,台北時間)
+
+  flights: [
+    { label:"去程", date:"12/21(一)", no:"7G800", airline:"星悅航空 STARFLYER", craft:"",
+      from:"TPE", fromCity:"台北桃園", dep:"03:00",
+      to:"KKJ",  toCity:"北九州", arr:"06:15", arrDate:"", dur:"2小時15分",
+      seat:"", bag:"30 kg", fare:"豪華浪漫頭等艙" },
+    { label:"回程", date:"12/25(五)", no:"7G801", airline:"星悅航空 STARFLYER", craft:"",
+      from:"KKJ", fromCity:"北九州", dep:"23:50",
+      to:"TPE",  toCity:"台北桃園", arr:"01:30", arrDate:"12/26(六)", dur:"2小時40分",
+      seat:"", bag:"30 kg", fare:"豪華浪漫頭等艙" }
+  ],
+
+  days: [
+    { date:"12/21", iso:"2026-12-21", wk:"一", city:"miyazaki", scene:"car", title:"抵達北九州,自駕前往宮崎", sample:true, items:[
+      { time:"06:15", name:"抵達北九州機場", tag:"plane", note:"入境,領行李" },
+      { time:"08:00", name:"取租車(範例)", tag:"car", note:"記得帶駕照正本+日文譯本" },
+      { time:"10:00", name:"自駕前往宮崎", tag:"car", note:"範例:走高速公路約3小時多,請用導航確認" },
+      { time:"15:00", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー" }
+    ]},
+    { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"udo", title:"宮崎一日(景點待補)", sample:true, items:[
+      { time:"10:00", name:"青島神社(範例)", tag:"car", must:true, note:"請改成你們想去的景點", map:"青島神社" },
+      { time:"12:30", name:"午餐:宮崎名物(待補)", tag:"walk" },
+      { time:"15:00", name:"鵜戶神宮(範例)", tag:"car", must:true, map:"鵜戸神宮" }
+    ]},
+    { date:"12/23", iso:"2026-12-23", wk:"三", city:"oita", scene:"onsen", title:"前往大分(地點待確認)", sample:true, items:[
+      { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認" }
+    ]},
+    { date:"12/24", iso:"2026-12-24", wk:"四", city:"kokura", scene:"sarakura", title:"小倉散步", sample:true, items:[
+      { time:"10:00", name:"小倉城(範例)", tag:"walk", must:true, map:"小倉城" },
+      { time:"13:00", name:"旦過市場(範例)", tag:"walk", must:true, map:"旦過市場" },
+      { time:"18:00", name:"晚餐(待補)", tag:"walk" }
+    ]},
+    { date:"12/25", iso:"2026-12-25", wk:"五", city:"kokura", scene:"xmas", title:"最後一天,搭夜間班機回台", sample:true, items:[
+      { time:"11:00", name:"退房,寄放行李", tag:"walk" },
+      { time:"14:00", name:"最後採買(待補)", tag:"car" },
+      { time:"17:30", name:"小倉車站聖誕燈飾與聖誕樹(範例)", tag:"walk", must:true, note:"請確認點燈時間", map:"JR小倉駅" },
+      { time:"19:30", name:"還車+前往北九州機場", tag:"car", note:"23:50起飛,建議21:00前到機場", map:"北九州空港" },
+      { time:"23:50", name:"搭7G801回台北", tag:"plane" }
+    ]}
+  ],
+
+  todos: [
+    "確認12/23晚上的住宿",
+    "確認大分要去的地點(大分市 / 別府 / 由布院)",
+    "確認租車預約與取車,還車地點",
+    "決定每天想去的景點",
+    "查店家營業日(年底可能休息)"
+  ],
+
+  /* 住宿: mapQuery = Google 地圖搜尋用的名稱(日文最準)
+           mapUrl   = 如果你有 Google 地圖的分享連結,貼在這裡會優先使用
+           tel      = 飯店電話(日本導航可直接輸入電話找地點)
+           mapcode  = Mapcode (日本導航可輸入) */
+  hotels: [
+    { name:"宮崎天空塔藝術飯店", area:"宮崎/宮崎縣", in:"2026/12/21(一)", out:"2026/12/23(三)",
+      room:"精緻 加大雙人床房", plan:"",
+      addr:"880-0812 宮崎縣宮崎市高千穗通2-1-26", mapQuery:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", mapUrl:"", tel:"", mapcode:"" },
+    { name:"(12/23晚上待確認)", area:"", in:"2026/12/23(三)", out:"2026/12/24(四)",
+      room:"", plan:"尚未找到這晚的訂單", warn:true, mapQuery:"", mapUrl:"", tel:"", mapcode:"" },
+    { name:"小倉舒適酒店", area:"北九州/福岡縣", in:"2026/12/24(四)", out:"2026/12/25(五)",
+      room:"標準 雙人房", plan:"",
+      addr:"802-0001 福岡縣北九州市小倉北區淺野2-6-21", mapQuery:"福岡県北九州市小倉北区浅野2-6-21 コンフォートホテル小倉", mapUrl:"", tel:"", mapcode:"" }
+  ],
+
+  before: [
+    "護照效期(6個月以上)",
+    "駕照正本+日文譯本(自駕必備)",
+    "租車預約確認單/高速公路 ETC 方案",
+    "Visit Japan Web 填寫入境資料",
+    "兌換日幣/準備信用卡",
+    "網卡或 eSIM",
+    "航班線上報到(星悅航空)",
+    "旅遊保險",
+    "下載離線地圖",
+    "手機與行動電源充飽"
+  ],
+
+  packing: {
+    "證件與錢": ["護照","駕照正本+日文譯本","日幣現金","信用卡","訂房/航班/租車截圖"],
+    "電子用品": ["手機充電線","車用手機架","車用充電器","行動電源","轉接頭(日本為雙平頭)"],
+    "衣物(12月偏冷)": ["保暖外套","發熱衣","圍巾手套","好走的鞋","睡衣"],
+    "盥洗與藥品": ["牙刷牙膏","保養品","常備藥","口罩"],
+    "其他": ["折疊雨傘","小背包","購物袋"]
+  }
+};
+
+/* 天氣城市(座標用來向 Open-Meteo 取預報; link 是日本氣象廳官方頁面) */
+const CITIES = {
+  miyazaki:{ name:"宮崎", lat:31.9111, lon:131.4239, jma:"https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=450000" },
+  oita:    { name:"大分", lat:33.2382, lon:131.6126, jma:"https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=440000" },
+  kokura:  { name:"小倉", lat:33.8835, lon:130.8826, jma:"https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=400000" }
+};
+
+/* ===================== 以下是程式,不用改 ===================== */
+
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; }catch(e){ return d; } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+};
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TAGNAME = {plane:"飛機", train:"電車", bus:"巴士", car:"自駕", walk:"步行", taxi:"計程車"};
+const gmap = q => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q);
+const gnav = q => "https://www.google.com/maps/dir/?api=1&travelmode=driving&destination=" + encodeURIComponent(q);
+
+/* 倒數 */
+function tick(){
+  const t = new Date(TRIP.start).getTime() - Date.now();
+  if (t <= 0){ $("#countTitle").textContent = "旅程開始囉"; ["cd","ch","cm","cs"].forEach(i => $("#"+i).textContent = "0"); return; }
+  const s = Math.floor(t/1000);
+  $("#cd").textContent = Math.floor(s/86400);
+  $("#ch").textContent = Math.floor(s%86400/3600);
+  $("#cm").textContent = Math.floor(s%3600/60);
+  $("#cs").textContent = s%60;
+}
+tick(); setInterval(tick, 1000);
+
+/* 插圖 (首頁與每天卡片上的小插圖) */
+const INK = "#3E3A39", STONE = "#E9E2D0", DARK = "#2F2C2B";
+const CL1 = "M20 50q0-14 14-14q6-10 18-6q10-2 14 10q12 0 12 12H20z";
+const CL2 = "M20 50q0-10 10-10q5-8 15-5q8-1 11 8q9 0 9 8H20z";
+const skyPart = (bg = "#A8D3E6") => `<rect width="360" height="210" fill="${bg}"/>
+  <g fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"><path transform="translate(14 4)" d="${CL1}"/><path transform="translate(250 2)" d="${CL1}"/><path transform="translate(236 46)" d="${CL2}"/></g>`;
+const snowDots = () => { let d = ""; for (let i = 0; i < 12; i++) d += `<circle class="snow" style="animation-delay:${-(i * 0.5).toFixed(1)}s" cx="${(i * 53 + 20) % 350}" cy="${34 + (i * 19) % 40}" r="${i % 3 ? 2.2 : 3}" fill="#FFFCF6"/>`; return `<g>${d}</g>`; };
+const planeArt = () => `<path d="M6 18L0 0H14L28 14z" fill="#F2A497"/><path d="M6 22Q6 12 20 12H66Q90 12 98 22Q90 32 66 32H20Q6 32 6 22z" fill="#FFFCF6"/><path d="M38 24H58L44 46H30z" fill="#F2A497"/><circle cx="68" cy="21" r="3" fill="#A8D3E6" stroke-width="2"/><circle cx="79" cy="21" r="3" fill="#A8D3E6" stroke-width="2"/>`;
+const planePart = () => `<g class="skyplane"><g class="bob"><g transform="translate(108 22)" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">${planeArt()}</g></g></g>`;
+
+/* 摩艾石像 (日南) */
+const moai = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})" stroke="${INK}" stroke-width="${3 / s}" stroke-linejoin="round" stroke-linecap="round">
+  <path d="M-12 0L-9 -46Q-9 -62 0 -62Q9 -62 9 -46L12 0Z" fill="${STONE}"/>
+  <rect x="-8" y="-68" width="16" height="7" rx="2" fill="#F2A497"/>
+  <path d="M-9 -46H9" fill="none"/>
+  <path d="M-5 -42h3M2 -42h3M0 -42V-27M-3 -27H3" fill="none" stroke-width="${3 / s}"/>
+  <path d="M-5 -19Q0 -16 5 -19" fill="none" stroke-width="${3 / s}"/></g>`;
+const moaiTile = x => `<g transform="translate(${x} 0)">${moai(70, 166, 1)}${moai(250, 166, .85)}</g>`;
+
+const hillTile = x => `<g transform="translate(${x} 0)"><path d="M0 120Q45 92 90 120T180 120T270 120T360 120V138H0Z" fill="#B9DAA5"/><path d="M0 120Q45 92 90 120T180 120T270 120T360 120M0 138H360" fill="none" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/></g>`;
+const waveD = y => { let d = `M0 ${y}q10-6 20 0`; for (let i = 1; i < 18; i++) d += "t20 0"; return d; };
+const seaTile = x => `<g transform="translate(${x} 0)" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"><path d="${waveD(148)}"/><path d="${waveD(157)}" opacity=".7"/></g>`;
+const wheel = cx => `<g class="wheel"><circle cx="${cx}" cy="50" r="11" fill="${INK}"/><path d="M${cx} 44V56M${cx-6} 50H${cx+6}" stroke="#FFFCF6" stroke-width="3" fill="none"/><circle cx="${cx}" cy="50" r="2.5" fill="#FFFCF6" stroke="none"/></g>`;
+const carPart = () => `<g class="car"><g transform="translate(120 135)" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+  <rect x="44" y="-15" width="26" height="12" rx="3" fill="#F6D27A"/><path d="M52 -15V-18H62V-15" fill="none" stroke-width="3"/>
+  <path d="M20 24L32 -2Q34 -5 39 -5H74Q79 -5 82 -1L94 24Z" fill="#F2A497"/>
+  <path d="M28 22L36 0H54V22ZM58 22V0H73L83 22Z" fill="#FFFCF6" stroke-width="3"/>
+  <g transform="translate(44 22) scale(.72)" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><path d="M-10 0Q-10 -8 0 -8Q10 -8 10 0Z" fill="#A8D3E6"/><circle cx="0" cy="-13" r="7.5" fill="#F2A497"/><rect x="-7.5" y="-9.5" width="15" height="3.2" rx="1.6" fill="#F6D27A"/></g><g transform="translate(66 22) scale(.72)" stroke="#3E3A39" stroke-width="2.4" stroke-linejoin="round"><path d="M-10 0Q-10 -8 0 -8Q10 -8 10 0Z" fill="#F6D27A"/><circle cx="0" cy="-13" r="7.5" fill="#A8D3E6"/><rect x="-7.5" y="-9.5" width="15" height="3.2" rx="1.6" fill="#F2A497"/></g>
+  <rect x="0" y="22" width="112" height="28" rx="12" fill="#F2A497"/>
+  <path d="M58 25V47" fill="none" stroke-width="3"/>
+  <circle cx="102" cy="35" r="4" fill="#F6D27A" stroke-width="3"/>
+  <rect x="3" y="32" width="6" height="7" rx="2" fill="${INK}" stroke="none"/>
+  ${wheel(26)}${wheel(86)}
+  </g></g>
+  <g fill="#FFFCF6" stroke="${INK}" stroke-width="3"><circle class="puff" cx="114" cy="182" r="4"/><circle class="puff" style="animation-delay:-.6s" cx="114" cy="182" r="4"/><circle class="puff" style="animation-delay:-1.2s" cx="114" cy="182" r="3"/></g>`;
+
+/* 12/21 自駕 + 摩艾 */
+function sceneCar(full){
+  return skyPart() + snowDots() + (full ? planePart() : "") +
+    `<rect y="138" width="360" height="28" fill="#A8D3E6"/>
+    <g class="far">${hillTile(0)}${hillTile(360)}</g>
+    <g class="sea">${seaTile(0)}${seaTile(360)}</g>
+    <g class="near">${moaiTile(0)}${moaiTile(360)}</g>
+    <rect y="166" width="360" height="44" fill="${STONE}" stroke="${INK}" stroke-width="3"/>
+    <path d="M0 175H360M0 204H360" stroke="#FFFCF6" stroke-width="3" fill="none"/>
+    <line class="road" x1="0" y1="190" x2="360" y2="190" stroke="#F6D27A" stroke-width="4" stroke-dasharray="14 12"/>` + carPart();
+}
+
+/* 12/22 鵜戶神宮: 海蝕洞窟裡的朱紅神社, 注連繩, 石燈籠, 龜石與運玉 */
+function sceneUdo(){
+  const pine = (x, y) => `<g transform="translate(${x} ${y})" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M0 0V14" fill="none" stroke-width="3"/><path d="M0 -26L-12 -8H12Z" fill="#B9DAA5"/><path d="M0 -16L-15 4H15Z" fill="#B9DAA5"/></g>`;
+  const lantern = (x, y) => `<g transform="translate(${x} ${y})" stroke="${INK}" stroke-width="3" stroke-linejoin="round"><rect x="-9" y="-4" width="18" height="6" fill="${STONE}"/><rect x="-3" y="-18" width="6" height="14" fill="${STONE}"/><rect x="-8" y="-30" width="16" height="12" fill="#F6D27A"/><path d="M-12 -30L0 -40L12 -30Z" fill="${STONE}"/></g>`;
+  const bperson = (x, y, k, coat, hat, scarf, d) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round"><path d="M-15 0Q-17 -34 0 -38Q17 -34 15 0Z" fill="${coat}"/><circle cx="0" cy="-48" r="11" fill="${hat}"/><circle cx="0" cy="-61" r="3.5" fill="#FFFCF6" stroke-width="${3 / k}"/><rect x="-11" y="-40" width="22" height="6" rx="3" fill="${scarf}" stroke-width="${3 / k}"/><path d="M${7 * d} -36H${14 * d}V-20L${9 * d} -22Z" fill="${scarf}" stroke-width="${3 / k}"/></g>`;
+  let tags = "";
+  [[181.8, 130.0], [210.6, 133.6], [239.4, 133.6], [268.2, 130.0]].forEach(([x, y]) => {
+    tags += `<path d="M${x - 4} ${y} l4 11 l4 -11z" fill="#FFFCF6" stroke="${INK}" stroke-width="2" stroke-linejoin="round"/>`;
+  });
+  return skyPart() + snowDots() + `
+    <rect y="140" width="360" height="70" fill="#A8D3E6" stroke="${INK}" stroke-width="3"/>
+    <path d="M96 210V124Q100 84 158 66Q224 36 290 66Q348 84 360 118V210Z" fill="${STONE}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="none" stroke="${INK}" stroke-width="2" stroke-linecap="round" opacity=".35"><path d="M104 150Q120 146 138 152M312 120Q330 116 352 122M310 160Q330 156 354 162M104 178Q122 174 138 180M318 190Q334 186 352 190"/></g>
+    <path d="M96 124Q100 84 158 66Q224 36 290 66Q348 84 360 118V138Q344 106 290 98Q224 76 158 98Q112 108 100 138Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" fill="#F2A497"><rect x="203" y="46" width="7" height="38"/><rect x="230" y="46" width="7" height="38"/><rect x="197" y="38" width="46" height="8" rx="3"/><rect x="204" y="57" width="32" height="5"/><rect x="216" y="46" width="8" height="11"/></g>
+    ${pine(146, 82)}${pine(262, 70)}${pine(298, 76)}
+    <g class="gull" style="animation-delay:-4s"><g transform="translate(60 64)"><path d="M-9 0Q-4.5 -6 0 0Q4.5 -6 9 0" fill="none" stroke="${INK}" stroke-width="3" stroke-linecap="round"/></g></g>
+    <g class="gull" style="animation-delay:-15s"><g transform="translate(40 46) scale(.8)"><path d="M-9 0Q-4.5 -6 0 0Q4.5 -6 9 0" fill="none" stroke="${INK}" stroke-width="3.75" stroke-linecap="round"/></g></g>
+    <path d="M146 210V138Q146 96 225 96Q304 96 304 138V210Z" fill="${INK}"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+      <rect x="188" y="170" width="74" height="24" fill="#F2A497"/>
+      <rect x="214" y="176" width="22" height="18" fill="#F6D27A"/>
+      <path d="M176 170L225 150L274 170Z" fill="#B9DAA5"/>
+      <path d="M217 150L225 139L233 150" fill="none"/>
+      <path d="M200 170V194M250 170V194" fill="none"/>
+    </g>
+    <path d="M150 124Q225 156 300 124" fill="none" stroke="#FFFCF6" stroke-width="5" stroke-linecap="round"/>
+    <path d="M150 124Q225 156 300 124" fill="none" stroke="${INK}" stroke-width="1.5" stroke-dasharray="3 5" stroke-linecap="round"/>
+    ${tags}
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" fill="${STONE}"><rect x="160" y="194" width="130" height="8"/><rect x="150" y="202" width="150" height="8"/></g>
+    ${lantern(166, 194)}${lantern(284, 194)}${bperson(204, 206, .62, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${bperson(236, 206, .62, "#F6D27A", "#A8D3E6", "#F2A497", 1)}
+    <g class="wv" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"><path d="M6 206q10-8 20 0t20 0t20 0M24 156q8-6 16 0t16 0M60 188q8-6 16 0"/></g>
+    <g fill="#FFFCF6" stroke="${INK}" stroke-width="2"><circle class="spray" cx="92" cy="200" r="5"/><circle class="spray" style="animation-delay:-.9s" cx="86" cy="196" r="4"/><circle class="spray" style="animation-delay:-1.7s" cx="98" cy="196" r="3.5"/></g>
+    <path d="M12 198Q16 176 44 176Q74 176 78 198Z" fill="${STONE}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <ellipse cx="45" cy="178" rx="9" ry="4" fill="${INK}"/>
+    <circle class="toss" cx="6" cy="182" r="4.5" fill="#F6D27A" stroke="${INK}" stroke-width="3"/>`;
+}
+
+/* 12/23 溫泉: 木造湯屋, 竹籬, 石頭圍起來的露天風呂, 蒸氣與雪 */
+function sceneOnsen(){
+  let rim = "";
+  for (let i = 0; i < 14; i++){
+    const a = i / 14 * Math.PI * 2;
+    rim += `<circle cx="${(244 + 96 * Math.cos(a)).toFixed(1)}" cy="${(178 + 26 * Math.sin(a)).toFixed(1)}" r="${i % 2 ? 7 : 8.5}" fill="${STONE}" stroke="${INK}" stroke-width="3"/>`;
+  }
+  let fence = "";
+  for (let x = 128; x < 352; x += 17) fence += `<rect x="${x}" y="118" width="10" height="40" rx="4" fill="#F6D27A" stroke="${INK}" stroke-width="3"/>`;
+  let snow = "";
+  for (let i = 0; i < 16; i++) snow += `<circle class="snow" style="animation-delay:${-(i * 0.42).toFixed(2)}s" cx="${(i * 47 + 14) % 350}" cy="${30 + (i * 23) % 50}" r="${i % 3 ? 2.2 : 3}" fill="#FFFCF6"/>`;
+  return skyPart() + snow + `
+    <path d="M132 124L186 62L240 124L300 82L360 124V170H132Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"><path d="M186 62L202.2 80.6L194 84L187 79L179 85L169.8 80.6Z"/><path d="M300 82L318 94.6L311 98L304 93L296 99L282 94.6Z"/></g>
+    <path d="M112 134Q150 116 200 124T300 120T360 122V160H112Z" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M0 152Q90 140 180 148T360 146V210H0Z" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${fence}<rect x="122" y="128" width="236" height="6" rx="3" fill="${STONE}" stroke="${INK}" stroke-width="3"/>
+    <path d="M0 152Q90 140 180 148T360 146V210H0Z" fill="none"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="16" y="104" width="94" height="56" fill="#F6D27A"/>
+      <path d="M6 106L63 70L120 106Z" fill="${INK}"/>
+      <path d="M63 70L94.4 89.8Q80 95 63 91Q46 95 31.6 89.8Z" fill="#FFFCF6"/>
+      <rect x="44" y="122" width="38" height="38" fill="${INK}"/>
+      <rect x="42" y="116" width="42" height="22" fill="#A8D3E6" stroke-width="3"/>
+      <path d="M52 138V128M63 138V128M74 138V128" fill="none" stroke-width="2"/>
+      <path d="M100 118V138" fill="none" stroke-width="3"/><ellipse cx="100" cy="144" rx="6" ry="8" fill="#F2A497" stroke-width="3"/>
+    </g>
+    
+    <ellipse cx="244" cy="178" rx="92" ry="23" fill="#A8D3E6" stroke="${INK}" stroke-width="3"/>
+    <g fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round" opacity=".9"><path d="M200 176q8-4 16 0M250 184q8-4 16 0M276 172q6-3 12 0"/></g>
+    ${rim}
+    <g transform="translate(232 179)" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="9.5" fill="#FDE6D5"/><rect x="-8" y="-14" width="16" height="7" rx="3.5" fill="#FFFCF6"/><path d="M-5 0Q-3.5 2 -2 0M2 0Q3.5 2 5 0" fill="none" stroke-width="2"/><circle cx="-6.5" cy="3" r="2" fill="#F2A497" stroke="none"/><circle cx="6.5" cy="3" r="2" fill="#F2A497" stroke="none"/></g><g transform="translate(256 179)" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><circle cx="0" cy="0" r="9.5" fill="#FDE6D5"/><rect x="-8" y="-14" width="16" height="7" rx="3.5" fill="#FFFCF6"/><path d="M-5 0Q-3.5 2 -2 0M2 0Q3.5 2 5 0" fill="none" stroke-width="2"/><circle cx="-6.5" cy="3" r="2" fill="#F2A497" stroke="none"/><circle cx="6.5" cy="3" r="2" fill="#F2A497" stroke="none"/></g><path d="M214 185Q232 179 244 185T274 185V194H214Z" fill="#A8D3E6"/><path d="M217 187q7-4 14 0t14 0M246 189q7-4 14 0" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"/><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="292" y="182" width="30" height="6" rx="3" fill="#C98F5B"/><rect x="297" y="172" width="6" height="10" rx="2" fill="#FFFCF6"/><path d="M298 172V169H302V172" fill="none"/><rect x="309" y="177" width="8" height="5" rx="2" fill="#F2A497"/></g><path d="M286 191q6-3 12 0t12 0t12 0" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round"/><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><rect x="50" y="195" width="16" height="6" rx="2" fill="#E9E2D0"/><rect x="55" y="181" width="6" height="14" fill="#E9E2D0"/><rect x="51" y="166" width="14" height="15" rx="2" fill="#F6D27A"/><path d="M46 167L58 154L70 167Z" fill="#E9E2D0"/><path d="M50 164Q58 157 66 164Q58 160 50 164Z" fill="#FFFCF6" stroke="none"/><path d="M58 154V150" fill="none"/></g><g stroke="#3E3A39" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><g transform="translate(90 196) rotate(-8)"><rect x="-8" y="0" width="16" height="6" rx="3" fill="#C98F5B"/><rect x="-5" y="6" width="3" height="3" fill="#3E3A39"/><rect x="2" y="6" width="3" height="3" fill="#3E3A39"/></g><g transform="translate(110 198) rotate(6)"><rect x="-8" y="0" width="16" height="6" rx="3" fill="#C98F5B"/><rect x="-5" y="6" width="3" height="3" fill="#3E3A39"/><rect x="2" y="6" width="3" height="3" fill="#3E3A39"/></g></g>
+    <g class="steamset" fill="none" stroke="#FFFCF6" stroke-width="3" stroke-linecap="round">
+      <path class="steam" d="M214 158q-11-14 0-28t0-30"/><path class="steam2" d="M246 160q11-14 0-28t0-30"/><path class="steam" style="animation-delay:-2.2s" d="M278 158q-11-14 0-28t0-30"/></g>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M130 190h22l-3 16h-16z" fill="#F6D27A"/><path d="M132 195h18M133 201h16" fill="none"/><rect x="154" y="196" width="22" height="9" rx="2" fill="#FFFCF6"/></g>`;
+}
+
+/* 12/24 皿倉山夜景: 從山頂往下看, 扇形的城市燈海, 海灣與若戶大橋, 纜車 */
+function sceneSarakura(){
+  const rnd = i => { const v = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return v - Math.floor(v); };
+  const G = "#4D4847";
+  let stars = "";
+  for (let i = 0; i < 20; i++) stars += `<circle class="${["tw","tw2","tw3"][i % 3]}" cx="${(rnd(i + 400) * 350 + 5).toFixed(1)}" cy="${(rnd(i + 600) * 64 + 36).toFixed(1)}" r="${i % 4 ? 1.4 : 2}" fill="#FFFCF6"/>`;
+  let city = "";
+  for (let i = 0; i < 230; i++){
+    const y = 152 + rnd(i + 1000) * 38;
+    const half = 36 + (y - 150) * 5.4;
+    const x = 180 + (rnd(i) * 2 - 1) * half;
+    if (x < 4 || x > 356) continue;
+    const col = i % 9 === 0 ? "#F2A497" : i % 6 === 0 ? "#FFFCF6" : "#F6D27A";
+    city += `<circle class="${["tw","tw2","tw3","","",""][i % 6]}" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i % 4 ? 1.4 : 2}" fill="${col}"/>`;
+  }
+  let reflect = "";
+  for (let i = 0; i < 16; i++) reflect += `<path class="${["tw","tw2","tw3"][i % 3]}" d="M${(rnd(i + 80) * 340 + 10).toFixed(1)} ${(130 + rnd(i + 90) * 10).toFixed(1)}v${(4 + rnd(i + 70) * 8).toFixed(1)}" stroke="#F6D27A" stroke-width="2" stroke-linecap="round" opacity=".7"/>`;
+  let deck = "";
+  const L = (x, y, c = "#F6D27A", r = 1.8) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="${c}"/>`;
+  for (let x = 232; x <= 358; x += 9) deck += L(x, 143);
+  for (let k = 1; k <= 3; k++){ deck += L(232 + k * 8, 142 - k * 9); deck += L(358 - k * 8, 142 - k * 9); }
+  for (let k = 1; k <= 7; k++){ const t = k / 8; deck += L(264 * (1 - t) * (1 - t) + 2 * 295 * t * (1 - t) + 326 * t * t, 106 * (1 - t) * (1 - t) + 2 * 132 * t * (1 - t) + 106 * t * t); }
+  deck += L(264, 102, "#F2A497", 2.4) + L(326, 102, "#F2A497", 2.4);
+  const person = (x, coat, hat, scarf, d) => `<g transform="translate(${x} 206) scale(1.15)" stroke="${INK}" stroke-width="${2 / 1.15}" stroke-linejoin="round"><path d="M-14 0Q-16 -32 0 -36Q16 -32 14 0Z" fill="${coat}"/><circle cx="0" cy="-46" r="10.5" fill="${hat}"/><circle cx="0" cy="-58" r="3.3" fill="#FFFCF6"/><rect x="-10.5" y="-39" width="21" height="6" rx="3" fill="${scarf}"/><path d="M${6 * d} -35H${13 * d}V-21L${8 * d} -23Z" fill="${scarf}"/></g>`;
+  let posts = "";
+  for (let x = 6; x < 360; x += 30) posts += `<rect x="${x}" y="186" width="3" height="8" fill="${G}"/>`;
+  return `<rect width="360" height="210" fill="${INK}"/>
+    ${stars}
+    <circle cx="300" cy="66" r="17" fill="#F6D27A"/><circle cx="307" cy="61" r="15" fill="${INK}"/>
+    <rect y="116" width="360" height="12" fill="#A8D3E6" opacity=".18"/>
+    <path d="M0 128Q60 116 130 123T260 119T360 125V130H0Z" fill="${DARK}"/>
+    <g fill="#F6D27A"><circle class="tw" cx="40" cy="126" r="1.2"/><circle class="tw2" cx="92" cy="124" r="1.2"/><circle class="tw3" cx="176" cy="123" r="1.2"/></g>
+    <rect y="128" width="360" height="22" fill="#34302F"/>
+    ${reflect}
+    <g class="ship"><rect x="96" y="138" width="16" height="3" rx="1" fill="#6B6564"/><rect x="101" y="134" width="6" height="4" fill="#5A5655"/><circle cx="104" cy="133" r="1.2" fill="#F6D27A"/></g>
+    <g stroke="${G}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M232 142L264 106Q295 134 326 106L358 142"/><path d="M226 146H360" stroke-width="3"/></g>
+    <rect x="262" y="104" width="4" height="42" fill="${G}"/><rect x="324" y="104" width="4" height="42" fill="${G}"/>
+    ${deck}
+    <path d="M0 150H360V210H0Z" fill="${DARK}"/>
+    <g fill="none" stroke="#F6D27A" stroke-width="2" opacity=".5" stroke-linecap="round"><path d="M176 152Q150 172 108 192M184 152Q214 172 258 192M180 152V192"/></g>
+    ${city}
+    <path d="M0 146L112 202" stroke="#6b6564" stroke-width="2" fill="none"/>
+    <g class="cabin"><path d="M12 150V158" stroke="#6b6564" stroke-width="2"/><rect x="2" y="158" width="20" height="12" rx="3" fill="#F6D27A" stroke="${INK}" stroke-width="2"/><rect x="6" y="161" width="5" height="5" fill="${INK}"/><rect x="13" y="161" width="5" height="5" fill="${INK}"/></g>
+    ${person(290, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${person(322, "#F6D27A", "#A8D3E6", "#F2A497", 1)}
+    <rect y="192" width="360" height="18" fill="${DARK}"/>
+    <path d="M0 194H360" stroke="${G}" stroke-width="3"/>${posts}
+    
+    `;
+}
+
+/* 12/25 雪夜聖誕小鎮: 聖誕樹, 雪人, 小屋, 禮物, 牽手的兩個人, 燈串與落雪 */
+function sceneXmas(){
+  const person = (x, coat, hat, scarf) => `<g transform="translate(${x} 176)" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="-8" y="-18" width="6" height="18" fill="${INK}"/><rect x="2" y="-18" width="6" height="18" fill="${INK}"/>
+    <path d="M-13 -16V-34Q-13 -46 0 -46Q13 -46 13 -34V-16Z" fill="${coat}"/>
+    <rect x="-10" y="-50" width="20" height="7" rx="3" fill="${scarf}"/>
+    <circle cx="0" cy="-60" r="10" fill="#FDE6D5"/>
+    <path d="M-10.5 -62Q0 -78 10.5 -62Z" fill="${hat}"/><circle cx="0" cy="-74" r="3.2" fill="#FFFCF6"/>
+    <circle cx="-3.5" cy="-59" r="1.3" fill="${INK}" stroke="none"/><circle cx="3.5" cy="-59" r="1.3" fill="${INK}" stroke="none"/>
+    <path d="M-3 -55Q0 -52 3 -55" fill="none" stroke-width="2"/></g>`;
+  const backPerson = (x, tilt, coat, hat, scarf, s) => `<g transform="translate(${x} 176) rotate(${tilt})" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M-15 0Q-17 -34 0 -38Q17 -34 15 0Z" fill="${coat}"/>
+    <circle cx="0" cy="-48" r="11" fill="${hat}"/>
+    <circle cx="0" cy="-61" r="3.5" fill="#FFFCF6" stroke-width="3"/>
+    <rect x="-11" y="-40" width="22" height="6" rx="3" fill="${scarf}" stroke-width="3"/>
+    <path d="M${7 * s} -36H${14 * s}V-20L${9 * s} -22Z" fill="${scarf}" stroke-width="3"/>
+    <rect x="-10" y="-1" width="7" height="6" rx="2" fill="${INK}"/><rect x="3" y="-1" width="7" height="6" rx="2" fill="${INK}"/></g>`;
+  const house = (x, body) => `<g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+    <rect x="${x}" y="114" width="50" height="34" fill="${body}"/>
+    <path d="M${x - 6} 116L${x + 25} 90L${x + 56} 116Z" fill="#FFFCF6"/>
+    <rect x="${x + 33}" y="124" width="11" height="24" fill="#F6D27A" stroke-width="3"/>
+    <rect x="${x + 7}" y="124" width="14" height="12" fill="#F6D27A" stroke-width="3"/></g>`;
+  const swag = (x0, x1, y0) => {
+    const mid = (x0 + x1) / 2, half = (x1 - x0) / 2;
+    let pts = [], bulbs = "";
+    for (let x = x0; x <= x1; x += 10){
+      const y = y0 + 12 * (1 - Math.pow((x - mid) / half, 2));
+      pts.push(`${x} ${y.toFixed(1)}`);
+      const k = Math.round((x - x0) / 10);
+      if (k % 2 === 1) bulbs += `<circle cx="${x}" cy="${(y + 4).toFixed(1)}" r="3.2" fill="${["#F2A497", "#F6D27A", "#FFFCF6"][k % 3]}" stroke="${INK}" stroke-width="2"/>`;
+    }
+    return `<path d="M${pts.join("L")}" fill="none" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>${bulbs}`;
+  };
+  let snow = "";
+  for (let i = 0; i < 20; i++) snow += `<circle class="snow" style="animation-delay:${-(i * 0.33).toFixed(2)}s" cx="${(i * 37 + 8) % 355}" cy="${34 + (i * 17) % 44}" r="${i % 3 ? 2.2 : 3}" fill="#FFFCF6"/>`;
+  const orn = [[172, 93, "#F2A497"], [188, 90, "#F6D27A"], [165, 121, "#F6D27A"], [195, 119, "#F2A497"], [180, 110, "#FFFCF6"], [158, 150, "#F2A497"], [180, 142, "#F6D27A"], [204, 150, "#FFFCF6"], [170, 156, "#FFFCF6"], [192, 157, "#F2A497"], [148, 157, "#F6D27A"], [212, 156, "#F6D27A"]];
+  const ornaments = orn.map(([x, y, c]) => `<circle cx="${x}" cy="${y}" r="4" fill="${c}" stroke="${INK}" stroke-width="2"/>`).join("");
+  return `<rect width="360" height="210" fill="#A8D3E6"/>
+    ${swag(0, 150, 34)}${swag(210, 360, 34)}
+    <path d="M0 138Q70 112 140 134T280 128T360 136V210H0Z" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    ${house(296, "#A8D3E6")}
+    <path d="M0 170Q90 160 180 168T360 166V210H0Z" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="173" y="160" width="14" height="11" fill="#C98F5B"/>
+      <path d="M180 108L138 162H222Z" fill="#B9DAA5"/>
+      <path d="M180 82L150 130H210Z" fill="#B9DAA5"/>
+      <path d="M180 60L160 100H200Z" fill="#B9DAA5"/>
+      <path d="M163 116Q180 126 197 116M147 146Q180 160 213 146" fill="none" stroke="#F6D27A"/>
+    </g>
+    <circle cx="44" cy="94" r="22" fill="#FFF1B8" opacity=".75"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M44 104V166" fill="none"/><rect x="37" y="161" width="14" height="8" rx="2" fill="${INK}"/><rect x="36" y="84" width="16" height="20" rx="5" fill="#F6D27A"/><path d="M33 84H55L44 73Z" fill="${INK}"/></g>
+    ${ornaments}
+    <path class="star" d="M180 38L182.9 46L191.5 46.4L184.7 51.6L187.1 60L180 55L172.9 60L175.3 51.6L168.5 46.4L177.1 46Z" fill="#F6D27A" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round">
+      <rect x="132" y="154" width="18" height="15" fill="#F2A497"/><path d="M141 154V169M132 161.5H150" fill="none" stroke="#FFFCF6"/>
+      <rect x="206" y="157" width="16" height="12" fill="#A8D3E6"/><path d="M214 157V169M206 163H222" fill="none" stroke="#FFFCF6"/>
+    </g>
+    <g stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <circle cx="92" cy="158" r="15" fill="#FFFCF6"/><circle cx="92" cy="134" r="11" fill="#FFFCF6"/>
+      <rect x="82" y="141" width="20" height="6" rx="3" fill="#F2A497" stroke-width="3"/>
+      <path d="M92 135L102 138L92 140Z" fill="#F6D27A" stroke-width="2"/>
+      <circle cx="88" cy="131" r="1.4" fill="${INK}" stroke="none"/><circle cx="96" cy="131" r="1.4" fill="${INK}" stroke="none"/>
+      <circle cx="92" cy="154" r="1.6" fill="${INK}" stroke="none"/><circle cx="92" cy="161" r="1.6" fill="${INK}" stroke="none"/>
+      <path d="M82 126H102M86 126L88 116H96L98 126" fill="#F6D27A" stroke-width="3"/>
+    </g>
+    <g transform="translate(121 171) rotate(-8)" stroke="${INK}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="-7" y="-48" width="14" height="54" rx="7" fill="#F2A497"/>
+      <path d="M-7 -32H7V-23H-7Z" fill="#F6D27A" stroke-width="3"/>
+      <rect x="-5" y="-15" width="10" height="6" rx="2" fill="${INK}"/>
+      <ellipse cx="0" cy="6" rx="13" ry="5" fill="#FFFCF6" stroke-width="3"/>
+    </g>
+    ${backPerson(244, 3, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${backPerson(272, -3, "#F6D27A", "#A8D3E6", "#F2A497", 1)}
+    ${snow}`;
+}
+
+const heroSuitcase = (x, y, c, k) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round"><path d="M-4 -34V-44H4V-34" fill="none"/><rect x="-11" y="-34" width="22" height="30" rx="5" fill="${c}"/><path d="M-11 -22H11" fill="none"/><circle cx="-6" cy="0" r="3" fill="${INK}"/><circle cx="6" cy="0" r="3" fill="${INK}"/></g>`;
+const heroPerson = (x, y, k, coat, hat, scarf, d) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round"><path d="M-15 0Q-17 -34 0 -38Q17 -34 15 0Z" fill="${coat}"/><circle cx="0" cy="-48" r="11" fill="${hat}"/><circle cx="0" cy="-61" r="3.5" fill="#FFFCF6"/><rect x="-11" y="-40" width="22" height="6" rx="3" fill="${scarf}"/><path d="M${7 * d} -36H${14 * d}V-20L${9 * d} -22Z" fill="${scarf}"/><rect x="-10" y="-1" width="7" height="6" rx="2" fill="${INK}"/><rect x="3" y="-1" width="7" height="6" rx="2" fill="${INK}"/></g>`;
+const heroPlane = (x, y, k) => `<g transform="translate(${x} ${y}) scale(${k})" stroke="${INK}" stroke-width="${3 / k}" stroke-linejoin="round" stroke-linecap="round">${planeArt()}</g>`;
+function heroAirport(){
+  return `<rect width="360" height="210" fill="#FFFCF6"/>
+    <rect x="146" y="6" width="68" height="21" rx="7" fill="#F6D27A" stroke="${INK}" stroke-width="3"/>
+    <text x="180" y="21.5" text-anchor="middle" font-size="19" font-weight="700" fill="${INK}" stroke="none" font-family="Caveat, Huninn, cursive">Travel</text>
+    <clipPath id="heroWin"><rect x="28" y="34" width="304" height="108" rx="10"/></clipPath>
+    <g clip-path="url(#heroWin)">
+      <rect x="28" y="34" width="304" height="108" fill="#A8D3E6"/>
+      ${snowDots()}
+      <path transform="translate(240 36)" d="${CL2}" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path transform="translate(40 34)" d="${CL1}" fill="#FFFCF6" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M28 120Q90 96 160 114T332 110V142H28Z" fill="#B9DAA5" stroke="${INK}" stroke-width="3"/>
+      <rect x="28" y="126" width="304" height="16" fill="#CFCAC4" stroke="${INK}" stroke-width="3"/>
+      <g class="skyplane"><g class="bob">${heroPlane(70, 56, .85)}</g></g>
+      <path d="M130 34V142M230 34V142" stroke="${INK}" stroke-width="3" fill="none"/>
+    </g>
+    <rect x="28" y="34" width="304" height="108" rx="10" fill="none" stroke="${INK}" stroke-width="3"/>
+    <path d="M0 150H360V210H0Z" fill="${STONE}" stroke="${INK}" stroke-width="3"/>
+    <path d="M0 172H360M0 192H360" stroke="#CFCAC4" stroke-width="3" fill="none"/>
+    ${heroSuitcase(112, 202, "#F2A497", 1.25)}${heroSuitcase(248, 204, "#A8D3E6", 1.25)}
+    ${heroPerson(148, 202, 1.25, "#A8D3E6", "#F2A497", "#F6D27A", -1)}${heroPerson(204, 204, 1.25, "#F6D27A", "#A8D3E6", "#F2A497", 1)}`;
+}
+let _clipId = 0;
+const framed = (inner, vb, rx) => {
+  const [x, y, w, h] = vb.split(" ").map(Number), id = "clip" + (++_clipId);
+  return `<defs><clipPath id="${id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"/></clipPath></defs><g clip-path="url(#${id})">${inner}</g><rect x="${x + 1.5}" y="${y + 1.5}" width="${w - 3}" height="${h - 3}" rx="${rx - 1.5}" fill="none" stroke="${INK}" stroke-width="3"/>`;
+};
+const SCENES = {
+  car:      { vb:"0 30 360 180", fn:() => sceneCar(false), label:"自駕小車沿著海岸公路, 路邊有摩艾石像" },
+  udo:      { vb:"0 30 360 180", fn:sceneUdo, label:"海邊山崖洞窟裡的朱紅神社 (鵜戶神宮)" },
+  onsen:    { vb:"0 30 360 180", fn:sceneOnsen, label:"冬天的露天溫泉與湯屋, 冒著蒸氣, 下著雪" },
+  sarakura: { vb:"0 30 360 180", fn:sceneSarakura, label:"皿倉山夜景, 滿城燈火與纜車" },
+  xmas:     { vb:"0 30 360 180", fn:sceneXmas, label:"雪夜的聖誕小鎮, 聖誕樹, 雪人, 小屋與牽手的兩個人" }
+};
+const sceneSvg = (n, cls) => { const s = SCENES[n]; return s ? `<svg class="${cls}" viewBox="${s.vb}" role="img" aria-label="${s.label}">${framed(s.fn(), s.vb, 19)}</svg>` : ""; };
+$("#heroScene").innerHTML = `<svg viewBox="0 0 360 210" role="img" aria-label="兩個人的背影, 帶著行李箱站在機場落地窗前, 看著窗外的飛機">${framed(heroAirport(), "0 0 360 210", 30)}</svg>`;
+
+/* 登機證 */
+const MID = `<svg viewBox="0 0 100 26" aria-hidden="true"><path d="M2 13h20M80 13h18" stroke="#3E3A39" stroke-width="3" stroke-dasharray="5 5" stroke-linecap="round" fill="none"/><g stroke="#3E3A39" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M29 12L26 3H34L38 9z" fill="#F2A497"/><path d="M28 13Q28 9 34 9H62Q74 9 78 13Q74 17 62 17H34Q28 17 28 13z" fill="#FFFCF6"/><path d="M44 15H55L46 24H39z" fill="#F2A497"/><circle cx="62" cy="12.5" r="1.6" fill="#A8D3E6" stroke-width="1.5"/><circle cx="68" cy="12.5" r="1.6" fill="#A8D3E6" stroke-width="1.5"/></g></svg>`;
+$("#flights").innerHTML = TRIP.flights.map((f,i) => {
+  const row = (k, v) => `<div><span>${k}</span><span class="${v?"":"todo"}">${v ? esc(v) : "待補"}</span></div>`;
+  return `
+  <div class="bp ${i===0?"out":"back"}">
+    <div class="bp-head">
+      <div class="l">${esc(f.label)} · ${esc(f.date)}</div>
+      <div class="r">${esc(f.airline)}<br>${esc(f.no)}${f.craft ? " · "+esc(f.craft) : ""}</div>
+    </div>
+    <div class="bp-main">
+      <div class="bp-end"><div class="bp-code">${esc(f.from)}</div><div class="bp-time">${esc(f.dep)}</div><div class="bp-city">${esc(f.fromCity)}</div></div>
+      <div class="bp-mid">${MID}直飛<br>${esc(f.dur)}</div>
+      <div class="bp-end r"><div class="bp-code">${esc(f.to)}</div><div class="bp-time">${esc(f.arr)}</div><div class="bp-city">${esc(f.toCity)}</div></div>
+    </div>
+    <div class="bp-cut"></div>
+    <div class="bp-rows">${row("座位", f.seat)}${row("託運行李", f.bag)}${row("票價類型", f.fare)}${f.arrDate ? row("抵達日期", f.arrDate) : ""}</div>
+  </div>`;
+}).join("");
+
+/* 天氣資料 */
+const WX = {};   // key: city|date -> {code,max,min,pop}
+let wxTime = null, wxFailed = false;
+function wxIcon(c){
+  if (c === 0) return ["☀️","晴"];
+  if (c <= 2) return ["🌤️","晴時多雲"];
+  if (c === 3) return ["☁️","陰"];
+  if (c <= 48) return ["🌫️","霧"];
+  if (c <= 57) return ["🌦️","毛毛雨"];
+  if (c <= 67) return ["🌧️","雨"];
+  if (c <= 77) return ["❄️","雪"];
+  if (c <= 82) return ["🌦️","陣雨"];
+  if (c <= 86) return ["❄️","陣雪"];
+  return ["⛈️","雷雨"];
+}
+function wxText(w){ const [i,n] = wxIcon(w.code); return `${i} ${n} ${Math.round(w.max)}°/${Math.round(w.min)}°,降雨 ${w.pop ?? "-"}%`; }
+
+async function loadWeather(){
+  const cities = Object.keys(CITIES);
+  const cached = store.get("wx_cache", null);
+  try{
+    await Promise.all(cities.map(async c => {
+      const C = CITIES[c];
+      const u = `https://api.open-meteo.com/v1/forecast?latitude=${C.lat}&longitude=${C.lon}` +
+        `&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia%2FTokyo&forecast_days=16`;
+      const r = await fetch(u); if (!r.ok) throw new Error("http "+r.status);
+      const j = await r.json();
+      j.daily.time.forEach((t,i) => { WX[c+"|"+t] = {
+        code:j.daily.weather_code[i], max:j.daily.temperature_2m_max[i], min:j.daily.temperature_2m_min[i], pop:j.daily.precipitation_probability_max[i] }; });
+    }));
+    wxTime = new Date();
+    store.set("wx_cache", {t: wxTime.toISOString(), data: WX});
+  }catch(e){
+    wxFailed = true;
+    if (cached){ Object.assign(WX, cached.data); wxTime = new Date(cached.t); }
+  }
+  renderWeather(); renderDay(false);
+}
+function extraWeather(){
+  const used = new Set(TRIP.days.map(d => d.city));
+  let out = "";
+  Object.keys(CITIES).filter(k => !used.has(k)).forEach(k => {
+    out += `<div class="wxextra">${esc(CITIES[k].name)} (還沒指定哪一天)</div><div class="wxmini">`;
+    TRIP.days.forEach(d => {
+      const w = WX[k + "|" + d.iso];
+      out += w
+        ? `<div class="mc"><b>${esc(d.date)}</b><span>${wxIcon(w.code)[0]}</span><small>${Math.round(w.max)}°/${Math.round(w.min)}°</small></div>`
+        : `<div class="mc na"><b>${esc(d.date)}</b><span>·</span><small>待開放</small></div>`;
+    });
+    out += `</div>`;
+  });
+  return out;
+}
+function renderWeather(){
+  $("#wxlist").innerHTML = TRIP.days.map(d => {
+    const C = CITIES[d.city]; const w = d.city ? WX[d.city+"|"+d.iso] : null;
+    const head = `<div class="d">${esc(d.date)} (${esc(d.wk)})<small>${C ? esc(C.name) : ""}</small></div>`;
+    if (!w) return `<div class="wxrow na">${head}<div class="i">·</div><div class="t">預報尚未開放<small>出發前約16天起才會有資料</small></div></div>`;
+    const [ic, nm] = wxIcon(w.code);
+    return `<div class="wxrow">${head}<div class="i">${ic}</div><div class="t">${nm}<small>最高${Math.round(w.max)}°/最低${Math.round(w.min)}°</small></div><div class="p">降雨 ${w.pop ?? "-"}%</div></div>`;
+  }).join("") + extraWeather();
+  const hh = wxTime ? wxTime.toLocaleString("zh-TW",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit",hour12:false}) : "";
+  $("#wxstatus").textContent = wxTime
+    ? (wxFailed ? `目前連不上網路,顯示上次資料 (${hh})` : `已更新 ${hh},資料來源 Open-Meteo`)
+    : "目前連不上網路,請改看下方氣象廳連結";
+  $("#wxlinks").innerHTML = Object.values(CITIES).map(c => `<a class="btn blue" href="${esc(c.jma)}" target="_blank" rel="noopener">${esc(c.name)} 氣象廳</a>`).join("");
+}
+
+/* 每日行程: 日期按鈕 + 小公路 + 滑動 */
+let cur = store.get("day", 0);
+if (!(cur >= 0 && cur < TRIP.days.length)) cur = 0;
+const RN = TRIP.days.length;
+const RX = TRIP.days.map((_, i) => RN > 1 ? 40 + i * (280 / (RN - 1)) : 180);
+const roadWheel = cx => `<g class="wheel"><circle cx="${cx}" cy="50" r="11" fill="${INK}"/><path d="M${cx} 44V56M${cx - 6} 50H${cx + 6}" stroke="#FFFCF6" stroke-width="3" fill="none"/></g>`;
+const roadPlane = `<g transform="translate(-22 -14.4) scale(.45)" stroke="${INK}" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round">${planeArt()}</g>`;
+const roadCar = `<g transform="translate(-23.5 -25.6) scale(.42)" stroke="${INK}" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"><rect x="44" y="-15" width="26" height="12" rx="3" fill="#F6D27A"/><path d="M20 24L32 -2Q34 -5 39 -5H74Q79 -5 82 -1L94 24Z" fill="#F2A497"/><path d="M28 22L36 0H54V22ZM58 22V0H73L83 22Z" fill="#FFFCF6"/><rect x="0" y="22" width="112" height="28" rx="12" fill="#F2A497"/><path d="M58 25V47" fill="none"/><circle cx="102" cy="35" r="4" fill="#F6D27A"/>${roadWheel(26)}${roadWheel(86)}</g>`;
+function buildRoad(){
+  let r = `<path d="M12 46H348" stroke="${INK}" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round" fill="none"/>`;
+  TRIP.days.forEach((d, i) => { r += `<circle class="dot" data-i="${i}" id="rdot${i}" cx="${RX[i]}" cy="46" r="8" fill="#FFFFFF" stroke="${INK}" stroke-width="3"/>`; });
+  r += `<g id="veh" style="transform:translate(${RX[cur]}px,46px)"><g id="vehIcon"></g></g>`;
+  $("#roadSvg").innerHTML = r;
+}
+function moveVehicle(i, instant){
+  const v = $("#veh"); if (!v) return;
+  if (instant) v.style.transition = "none";
+  v.style.transform = `translate(${RX[i]}px,46px)`;
+  $("#vehIcon").innerHTML = i === 0 ? `<g transform="translate(0 -12) rotate(10)">${roadPlane}</g>` : i === RN - 1 ? `<g transform="translate(0 -14) rotate(-16)">${roadPlane}</g>` : roadCar;
+  if (instant){ void v.getBoundingClientRect(); v.style.transition = ""; }
+  TRIP.days.forEach((_, k) => { const c = $("#rdot" + k); if (c) c.setAttribute("fill", k === i ? "#F2A497" : "#FFFFFF"); });
+  const svg = $("#roadSvg");
+  if (!instant){ svg.classList.add("go"); clearTimeout(moveVehicle.t); moveVehicle.t = setTimeout(() => svg.classList.remove("go"), 850); }
+}
+function renderDays(){
+  $("#days").innerHTML = TRIP.days.map((d,i) =>
+    `<button class="daybtn ${i===cur?"on":""}" role="tab" aria-selected="${i===cur}" data-i="${i}"><small>週${esc(d.wk)}</small><b>${esc(d.date)}</b></button>`).join("");
+}
+function renderDay(animate, dir){
+  const d = TRIP.days[cur];
+  const w = d.city ? WX[d.city+"|"+d.iso] : null;
+  $("#dayCard").innerHTML =
+    (d.scene ? sceneSvg(d.scene, "banner") : "") +
+    `<div class="daytitle">Day ${cur+1} · ${esc(d.title)}</div>` +
+    (w ? `<div class="dayweather">${esc(CITIES[d.city].name)} ${wxText(w)}</div>` : "") +
+    (d.sample ? `<div class="sample">這天內容是範例,之後請改成真正的安排</div>` : "") +
+    `<div class="timeline">` + d.items.map(it => `
+      <div class="item ${it.must?"must":""}">
+        <div class="time">${esc(it.time)}</div>
+        <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
+        ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+        ${it.map ? `<div class="links"><a class="mini" href="${gmap(it.map)}" target="_blank" rel="noopener">地圖</a><a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ""}
+      </div>`).join("") + `</div>`;
+  if (animate){ const c = $("#dayCard"); c.classList.remove("pop", "slideR", "slideL"); void c.offsetWidth; c.classList.add(dir < 0 ? "slideL" : "slideR"); }
+}
+function setDay(i){
+  i = Math.max(0, Math.min(RN - 1, i));
+  if (i === cur) return;
+  const dir = i > cur ? 1 : -1;
+  cur = i; store.set("day", cur);
+  renderDays(); renderDay(true, dir); moveVehicle(cur);
+  const on = document.querySelector(".daybtn.on"); if (on) on.scrollIntoView({inline:"center", block:"nearest"});
+}
+$("#days").addEventListener("click", e => { const b = e.target.closest(".daybtn"); if (b) setDay(+b.dataset.i); });
+$("#roadSvg").addEventListener("click", e => { const c = e.target.closest("[data-i]"); if (c) setDay(+c.dataset.i); });
+let _sx = null;
+$("#dayCard").addEventListener("touchstart", e => { _sx = e.touches[0].clientX; }, {passive:true});
+$("#dayCard").addEventListener("touchend", e => {
+  if (_sx === null) return;
+  const dx = e.changedTouches[0].clientX - _sx; _sx = null;
+  if (Math.abs(dx) > 50) setDay(cur + (dx < 0 ? 1 : -1));
+}, {passive:true});
+renderDays(); renderDay(false); buildRoad(); moveVehicle(cur, true); renderWeather(); loadWeather();
+
+/* 住宿 */
+$("#hotels").innerHTML = TRIP.hotels.map(h => {
+  const mapHref = h.mapUrl || (h.mapQuery ? gmap(h.mapQuery) : "");
+  const navHref = h.mapQuery ? gnav(h.mapQuery) : (h.mapUrl || "");
+  return `
+  <div class="card hotel ${h.warn?"warn":""}">
+    <h3>${esc(h.name)}</h3>
+    ${h.area ? `<div class="where">${esc(h.area)}</div>` : ""}
+    ${h.addr ? `<div class="room">${esc(h.addr)}</div>` : ""}
+    <div class="dates"><span class="pill">入住 ${esc(h.in)}</span><span class="pill">退房 ${esc(h.out)}</span></div>
+    ${h.room ? `<div class="room">${esc(h.room)}</div>` : ""}
+    ${h.plan ? `<div class="room">${esc(h.plan)}</div>` : ""}
+    ${h.tel ? `<div class="room tel">電話 <a href="tel:${esc(h.tel.replace(/[^\d+]/g,""))}">${esc(h.tel)}</a></div>` : ""}
+    ${h.mapcode ? `<div class="room">Mapcode ${esc(h.mapcode)}</div>` : ""}
+    ${mapHref ? `<div class="btnrow"><a class="btn" href="${esc(mapHref)}" target="_blank" rel="noopener">Google 地圖</a><a class="btn nav" href="${esc(navHref)}" target="_blank" rel="noopener">開車導航</a></div>` : ""}
+  </div>`;
+}).join("");
+
+/* 可打勾清單 */
+function checklist(key, items, listSel, barSel){
+  const saved = store.get("ck_"+key, {});
+  const ul = $(listSel);
+  ul.innerHTML = items.map((t,i) => `
+    <li class="${saved[i]?"done":""}"><input type="checkbox" id="${key}${i}" ${saved[i]?"checked":""} data-i="${i}"><label for="${key}${i}">${esc(t)}</label></li>`).join("");
+  const bar = $(barSel);
+  const update = () => {
+    const n = ul.querySelectorAll("input:checked").length;
+    bar.style.width = items.length ? (n/items.length*100)+"%" : "0";
+  };
+  ul.addEventListener("change", e => {
+    const i = e.target.dataset.i; saved[i] = e.target.checked;
+    e.target.closest("li").classList.toggle("done", e.target.checked);
+    store.set("ck_"+key, saved); update();
+  });
+  update();
+}
+checklist("todo", TRIP.todos, "#l-todo", "#p-todo");
+checklist("before", TRIP.before, "#l-before", "#p-before");
+
+/* 行李(分組) */
+(function(){
+  const flat = [];
+  const saved = store.get("ck_pack", {});
+  const box = $("#l-pack"), bar = $("#p-pack");
+  let out = "";
+  Object.entries(TRIP.packing).forEach(([g, arr]) => {
+    out += `<div class="group">${esc(g)}</div><ul class="check">`;
+    arr.forEach(t => {
+      const i = flat.length; flat.push(t);
+      out += `<li class="${saved[i]?"done":""}"><input type="checkbox" id="pk${i}" ${saved[i]?"checked":""} data-i="${i}"><label for="pk${i}">${esc(t)}</label></li>`;
+    });
+    out += `</ul>`;
+  });
+  box.innerHTML = out;
+  const update = () => { bar.style.width = flat.length ? (box.querySelectorAll("input:checked").length/flat.length*100)+"%" : "0"; };
+  box.addEventListener("change", e => {
+    saved[e.target.dataset.i] = e.target.checked;
+    e.target.closest("li").classList.toggle("done", e.target.checked);
+    store.set("ck_pack", saved); update();
+  });
+  update();
+})();
+
+/* 記帳 (兩個人: 臭豬 與 小豬) */
+const LG_KEY = "ledger_v1";
+let LG = store.get(LG_KEY, null) || {rate:0.21, budget:0, people:["臭豬","小豬"], nid:1, items:[]};
+const lgTwd = it => it.cur === "JPY" ? it.amt * LG.rate : it.amt;
+const lgFmt = n => Math.round(n).toLocaleString("en-US");
+const lgMsg = t => { $("#lg-msg").textContent = t; };
+function lgForm(){
+  $("#lg-rate").value = LG.rate; $("#lg-budget").value = LG.budget || "";
+  $("#lg-people").innerHTML = LG.people.map((p, i) => `<input type="text" data-lgp="${i}" value="${esc(p)}" aria-label="第${i + 1}位">`).join("");
+  $("#lg-who").innerHTML = LG.people.map((p, i) => `<option value="${i}">${esc(p)}</option>`).join("");
+  $("#lg-split").innerHTML = LG.people.map((p, i) => `<label><input type="checkbox" value="${i}" checked><span>${esc(p)}</span></label>`).join("");
+  $("#lg-day").innerHTML = TRIP.days.map((d, i) => `<option value="${i}">${esc(d.date)}(${esc(d.wk)})</option>`).join("");
+  $("#lg-rate").oninput = e => { LG.rate = parseFloat(e.target.value) || 0; lgRender(); };
+  $("#lg-budget").oninput = e => { LG.budget = parseFloat(e.target.value) || 0; lgRender(); };
+  document.querySelectorAll("[data-lgp]").forEach(el => el.oninput = e => {
+    LG.people[+e.target.dataset.lgp] = e.target.value || "?";
+    $("#lg-who").querySelectorAll("option").forEach((o, k) => { o.textContent = LG.people[k]; });
+    $("#lg-split").querySelectorAll("span").forEach((o, k) => { o.textContent = LG.people[k]; });
+    lgRender();
+  });
+}
+function lgRender(){
+  const total = LG.items.reduce((a, it) => a + lgTwd(it), 0);
+  const jpy = LG.items.reduce((a, it) => a + (it.cur === "JPY" ? it.amt : 0), 0);
+  $("#lg-total").textContent = lgFmt(total); $("#lg-jpy").textContent = lgFmt(jpy); $("#lg-count").textContent = LG.items.length;
+  $("#lg-left").textContent = LG.budget ? lgFmt(LG.budget - total) : "-";
+  $("#lg-barI").style.width = (LG.budget ? Math.min(100, total / LG.budget * 100) : 0) + "%";
+  $("#lg-bar").classList.toggle("over", !!LG.budget && total > LG.budget);
+  $("#lg-barT").textContent = LG.budget ? `已用NT$${lgFmt(total)}/NT$${lgFmt(LG.budget)}(${Math.round(total / LG.budget * 100)}%)` : "還沒有設定預算上限";
+  let html = "";
+  TRIP.days.forEach((d, di) => {
+    const its = LG.items.filter(it => it.day === di); if (!its.length) return;
+    html += `<div class="lg-dayhead"><span>${esc(d.date)}(${esc(d.wk)})</span><span class="lg-num">NT$${lgFmt(its.reduce((a, it) => a + lgTwd(it), 0))}</span></div>`;
+    its.forEach(it => {
+      html += `<div class="lg-entry"><div class="lg-m"><span class="lg-tag">${esc(it.cat)}</span>${esc(it.note || "(沒有備註)")}<small>${esc(LG.people[it.who] ?? "?")}付 · ${esc(it.pay)} · 分攤${it.split.length}人</small></div>` +
+        `<div class="lg-a">${it.cur === "JPY" ? "¥" + lgFmt(it.amt) + `<small>NT$${lgFmt(lgTwd(it))}</small>` : "NT$" + lgFmt(it.amt)}</div>` +
+        `<button class="lg-x" data-lgdel="${it.id}" aria-label="刪除這筆">×</button></div>`;
+    });
+  });
+  $("#lg-list").innerHTML = html || `<div class="lg-hint">還沒有任何一筆</div>`;
+  const bal = LG.people.map(() => 0);
+  LG.items.forEach(it => { const t = lgTwd(it), n = it.split.length || 1; bal[it.who] += t; it.split.forEach(k => { bal[k] -= t / n; }); });
+  const cr = [], de = [];
+  bal.forEach((v, i) => { if (v > 0.5) cr.push({i, v}); else if (v < -0.5) de.push({i, v:-v}); });
+  cr.sort((x, y) => y.v - x.v); de.sort((x, y) => y.v - x.v);
+  let lines = "", p = 0, q = 0;
+  while (p < de.length && q < cr.length){
+    const m = Math.min(de[p].v, cr[q].v);
+    lines += `<div class="lg-debt"><b>${esc(LG.people[de[p].i])}</b> 給 <b>${esc(LG.people[cr[q].i])}</b> <span class="lg-num">NT$${lgFmt(m)}</span></div>`;
+    de[p].v -= m; cr[q].v -= m; if (de[p].v < 0.5) p++; if (cr[q].v < 0.5) q++;
+  }
+  $("#lg-debts").innerHTML = lines || `<div class="lg-hint">目前不用互相給錢</div>`;
+  store.set(LG_KEY, LG);
+}
+function lgExport(){
+  let t = `旅遊記帳(匯率1日幣=${LG.rate}台幣)\n`;
+  TRIP.days.forEach((d, di) => {
+    const its = LG.items.filter(it => it.day === di); if (!its.length) return;
+    t += `\n${d.date}(${d.wk}) 小計NT$${lgFmt(its.reduce((a, it) => a + lgTwd(it), 0))}\n`;
+    its.forEach(it => { t += `- ${it.cat} ${it.cur === "JPY" ? "¥" + lgFmt(it.amt) + "(NT$" + lgFmt(lgTwd(it)) + ")" : "NT$" + lgFmt(it.amt)} ${it.note || ""} [${LG.people[it.who] ?? "?"}付]\n`; });
+  });
+  t += `\n總計NT$${lgFmt(LG.items.reduce((a, it) => a + lgTwd(it), 0))}\n`;
+  const dt = $("#lg-debts").innerText.trim(); if (dt) t += `\n${dt}\n`;
+  return t + `\n--備份資料--\n` + JSON.stringify(LG);
+}
+function lgImport(raw){
+  try{
+    const i = raw.indexOf("--備份資料--"); const j = JSON.parse((i >= 0 ? raw.slice(i + 8) : raw).trim());
+    if (!j || !Array.isArray(j.items) || !Array.isArray(j.people)) throw new Error("bad");
+    LG = j; lgForm(); lgRender(); lgMsg(`已匯入${LG.items.length}筆`);
+  }catch(e){ lgMsg("匯入失敗,看起來不是備份資料"); }
+}
+lgForm(); lgRender();
+$("#lg-add").onclick = () => {
+  const amt = parseFloat($("#lg-amt").value);
+  if (!(amt > 0)){ $("#lg-addMsg").textContent = "請先填金額"; return; }
+  const split = [...document.querySelectorAll("#lg-split input:checked")].map(x => +x.value);
+  if (!split.length){ $("#lg-addMsg").textContent = "至少要有一個人分攤"; return; }
+  LG.items.push({id:LG.nid++, day:+$("#lg-day").value, cur:$("#lg-cur").value, amt, cat:$("#lg-cat").value, pay:$("#lg-pay").value, who:+$("#lg-who").value, split, note:$("#lg-note").value.trim()});
+  $("#lg-amt").value = ""; $("#lg-note").value = ""; $("#lg-addMsg").textContent = "已新增"; lgRender();
+};
+$("#lg-list").onclick = e => { const b = e.target.closest("[data-lgdel]"); if (!b) return; LG.items = LG.items.filter(x => x.id !== +b.dataset.lgdel); lgRender(); };
+$("#lg-copy").onclick = async () => {
+  const t = lgExport();
+  try{ await navigator.clipboard.writeText(t); lgMsg("已複製,可以貼到LINE或備忘錄"); }
+  catch(e){ $("#lg-box").value = t; $("#lg-box").select(); lgMsg("這個瀏覽器不能自動複製,文字已放在上面的框,請長按全選後複製"); }
+};
+$("#lg-share").onclick = async () => {
+  const t = lgExport();
+  if (navigator.share){ try{ await navigator.share({title:"旅遊記帳", text:t}); }catch(e){} }
+  else lgMsg("這個瀏覽器不支援分享,請按複製成文字");
+};
+$("#lg-dl").onclick = () => {
+  const blob = new Blob([JSON.stringify(LG)], {type:"application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "旅遊記帳備份.json"; document.body.appendChild(a); a.click(); a.remove();
+  lgMsg("已送出下載,如果沒有反應(例如在LINE裡打開),請改按複製成文字");
+};
+$("#lg-imp").onclick = () => lgImport($("#lg-box").value);
+$("#lg-file").onchange = e => { const f = e.target.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => lgImport(String(r.result)); r.readAsText(f); };
+$("#lg-reset").onclick = () => { LG = {rate:LG.rate, budget:LG.budget, people:LG.people, nid:1, items:[]}; lgForm(); lgRender(); lgMsg("已清空明細"); };
+
+/* 匯出 PDF: 組一份只給列印用的版面(全部天數展開、不含按鈕/天氣/待辦),再叫瀏覽器列印成 PDF */
+function buildPrintDoc(){
+  const days = TRIP.days.map((d, i) => `
+    <div class="pd-day card">
+      ${d.scene ? sceneSvg(d.scene, "banner") : ""}
+      <div class="daytitle">${esc(d.date)} 週${esc(d.wk)} · Day ${i+1} · ${esc(d.title)}</div>
+      <div class="timeline">${d.items.map(it => `
+        <div class="item ${it.must?"must":""}">
+          <div class="time">${esc(it.time)}</div>
+          <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
+          ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+        </div>`).join("")}</div>
+    </div>`).join("");
+  const tiles = $(".lg-tiles").outerHTML;
+  $("#printDoc").innerHTML = `
+    <div class="pd-title"><h1>${esc($("#top h1").textContent)}</h1><p>${esc($("#top .sub").textContent)}</p></div>
+    <h2>航班</h2>${$("#flights").innerHTML}
+    <h2 class="pd-break">每日行程</h2>${days}
+    <h2 class="pd-break">住宿資訊</h2>${$("#hotels").innerHTML}
+    <h2 class="pd-break">記帳</h2>${tiles}
+    <div class="card"><div class="lg-title">誰要給誰</div>${$("#lg-debts").innerHTML}</div>
+    <div class="card"><div class="lg-title">明細</div>${$("#lg-list").innerHTML}</div>
+    <p style="text-align:center;color:#777;margin-top:16px">祝旅途愉快✿臭豬不可以當瑞比</p>`;
+}
+$("#pdfBtn").onclick = () => {
+  buildPrintDoc();
+  const oldTitle = document.title;
+  document.title = "九州旅行紀念_2026.12.21-12.25";
+  document.body.classList.add("printing");
+  const done = () => { document.body.classList.remove("printing"); document.title = oldTitle; $("#printDoc").innerHTML = ""; window.removeEventListener("afterprint", done); };
+  window.addEventListener("afterprint", done);
+  setTimeout(() => window.print(), 100);
+};
+</script>
+</body>
+</html>
