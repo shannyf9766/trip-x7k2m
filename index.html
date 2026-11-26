@@ -7,7 +7,7 @@
 <title>北九州宮崎之旅</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Iansui&family=Caveat:wght@700&family=Huninn&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Iansui&family=Caveat:wght@400;700&family=Huninn&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#FFFCF6; --ink:#3E3A39;
@@ -75,9 +75,9 @@ nav a:nth-child(4n+4){background:var(--green)}
 .bp-rows .todo{color:var(--muted)}
 
 /* 日期切換 */
-.days{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.days{display:flex;gap:5px;overflow:hidden;padding:4px 2px 10px;scrollbar-width:none}
 .days::-webkit-scrollbar{display:none}
-.daybtn{flex:none;font:inherit;color:var(--ink);cursor:pointer;border:3px solid var(--ink);border-radius:20px;background:#FFFFFF;padding:4px 18px;text-align:center;min-width:96px}
+.daybtn{flex:1 1 0;min-width:0;font:inherit;color:var(--ink);cursor:pointer;border:3px solid var(--ink);border-radius:20px;background:#FFFFFF;padding:4px 0;text-align:center}
 .daybtn small{display:block;font-size:12px;color:var(--muted)}
 .daybtn b{font-size:20px;line-height:1.1;display:block}
 .daybtn.on{background:var(--coral)}
@@ -101,6 +101,7 @@ nav a:nth-child(4n+4){background:var(--green)}
 .tag.bus{background:var(--green)}
 .tag.car{background:var(--yellow)}
 .tag.walk{background:var(--paper)}
+.tag.train,.tag.car,.tag.plane,.tag.bus{animation:none!important}
 .tag.taxi{background:var(--paper)}
 .must-badge{display:inline-block;background:var(--coral);border:3px solid var(--ink);border-radius:999px;padding:0 10px;font-size:12px;vertical-align:middle}
 .pop{animation:pop .45s cubic-bezier(.3,1.6,.5,1) both}
@@ -202,11 +203,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 .wxmini{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px}
 .mc{flex:1 0 64px;border:3px solid var(--ink);border-radius:14px;padding:2px 4px;text-align:center;font-size:13px;line-height:1.3}
 .mc b{display:block;font-weight:400}.mc span{display:block;font-size:20px}.mc small{color:var(--muted);font-size:12px}.mc.na{color:var(--muted)}
-.count b,.bp-time,.daybtn b,.item .time,.wxrow .d,.mc b{font-family:"Caveat","Iansui",cursive;font-weight:700}
+.count b,.bp-time,.daybtn b,.item .time,.wxrow .d,.mc b{font-family:"Caveat","Iansui",cursive;font-weight:400}
 .count b{font-size:36px;line-height:1.1}
 .bp-time{font-size:34px}
 .bp-time small{font-family:"Iansui",sans-serif;font-weight:400}
-.daybtn b{font-size:27px;line-height:1}
+.daybtn b{font-size:21px;line-height:1}
 .item .time{font-size:19px}
 .wxrow .d{font-size:19px}
 .wxrow .d small{font-family:"Iansui",sans-serif;font-weight:400}
@@ -225,7 +226,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 #ledger input[type=text],#ledger input[type=number],#ledger select,#ledger textarea{width:100%;font:inherit;color:var(--ink);border:3px solid var(--ink);border-radius:14px;padding:4px 10px;background:#FFFFFF}
 .lg-tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
 .lg-tile{border:3px solid var(--ink);border-radius:18px;padding:6px 10px;text-align:center}
-.lg-big{display:block;font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:34px;line-height:1.1}
+.lg-big{display:block;font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:34px;line-height:1.1}
 .lg-tile small{font-size:12px}
 .lg-t1{background:var(--coral)}.lg-t2{background:var(--yellow)}.lg-t3{background:var(--water)}.lg-t4{background:var(--green)}
 .lg-bar{height:14px;border:3px solid var(--ink);border-radius:999px;overflow:hidden;background:#FFFFFF;margin:4px 0 2px}
@@ -242,11 +243,11 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 .lg-btn.lg-y{background:var(--yellow)}.lg-btn.lg-w{background:#FFFFFF}.lg-btn.lg-c{background:var(--coral)}
 .lg-btn:active{transform:scale(.96)}
 .lg-dayhead{display:flex;justify-content:space-between;border-bottom:3px dashed var(--ink);padding:6px 0 2px;margin-top:8px}
-.lg-num{font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:21px}
+.lg-num{font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:21px}
 .lg-entry{display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:3px dashed #e6e0d4}
 .lg-m{flex:1;min-width:0;font-size:15px}
 .lg-m small{display:block;color:var(--muted);font-size:12px}
-.lg-a{font-family:"Caveat","Iansui",cursive;font-weight:700;font-size:21px;text-align:right;line-height:1.1}
+.lg-a{font-family:"Caveat","Iansui",cursive;font-weight:400;font-size:21px;text-align:right;line-height:1.1}
 .lg-a small{display:block;font-size:12px;color:var(--muted);font-family:"Iansui",sans-serif;font-weight:400}
 .lg-x{font:inherit;border:3px solid var(--ink);border-radius:50%;width:28px;height:28px;background:#FFFFFF;cursor:pointer;line-height:1;color:var(--ink)}
 .lg-tag{display:inline-block;border:3px solid var(--ink);border-radius:999px;padding:0 8px;font-size:12px;margin-right:4px}
@@ -254,6 +255,9 @@ footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
 #lg-msg{min-height:24px;font-size:14px;color:#3b6d11;margin-top:6px}
 .banner{display:block;width:100%;height:auto;margin-bottom:12px}
 
+.note.feat{color:var(--ink);margin-top:2px}
+.note.drive{color:var(--ink)}
+.plus1{font-size:15px;margin-left:3px;vertical-align:super;color:var(--muted)}
 #printDoc{display:none}
 @media print{
   @page{size:A4;margin:12mm}
@@ -427,24 +431,25 @@ const TRIP = {
     { label:"去程", date:"12/21(一)", no:"7G800", airline:"星悅航空 STARFLYER", craft:"",
       from:"TPE", fromCity:"台北桃園", dep:"03:00",
       to:"KKJ",  toCity:"北九州", arr:"06:15", arrDate:"", dur:"2小時15分",
-      seat:"", bag:"30 kg", fare:"豪華浪漫頭等艙" },
+      seat:"", bag:"30 kg", fare:"雙豬首次出國專案" },
     { label:"回程", date:"12/25(五)", no:"7G801", airline:"星悅航空 STARFLYER", craft:"",
       from:"KKJ", fromCity:"北九州", dep:"23:50",
       to:"TPE",  toCity:"台北桃園", arr:"01:30", arrDate:"12/26(六)", dur:"2小時40分",
-      seat:"", bag:"30 kg", fare:"豪華浪漫頭等艙" }
+      seat:"", bag:"30 kg", fare:"雙豬首次出國專案" }
   ],
 
   days: [
     { date:"12/21", iso:"2026-12-21", wk:"一", city:"miyazaki", scene:"car", title:"抵達北九州,自駕前往宮崎", sample:true, items:[
       { time:"06:15", name:"抵達北九州機場", tag:"plane", note:"入境,領行李" },
       { time:"08:00", name:"取租車(範例)", tag:"car", note:"記得帶駕照正本+日文譯本" },
-      { time:"10:00", name:"自駕前往宮崎", tag:"car", note:"範例:走高速公路約3小時多,請用導航確認" },
-      { time:"15:00", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー" }
+      { time:"10:00", name:"自駕前往高千穗", tag:"car", drive:"北九州機場→高千穗 約3.5~4小時(估計)" },
+{ time:"12:30", name:"停車:第1御塩井停車場", tag:"car", note:"高千穗町向山,收費1,000日圓(舊資料500),離真名井瀑布步行5分,旺季容易客滿。備用:第3大橋800日圓/第4押方500日圓,60分鐘內免費(另有說法第3大橋免費,待確認)", map:"高千穂峡 第1御塩井駐車場" },      { time:"13:00", name:"高千穗峽(步道+划船)", tag:"walk", must:true, note:"步道免費。划船30分鐘/艘,最多3人,4,100~5,100日圓(依日期變動),8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { time:"15:30", name:"天岩戶神社(西本宮)+天安河原", tag:"walk", note:"參拜免費。停車場部分收費(費用待確認)", map:"天岩戸神社 西本宮", feat:"日本神話中天照大神躲進岩洞的傳說地。西本宮隔著河谷遙拜洞窟,步行約10分鐘可到天安河原,河灘上堆滿祈願的小石塔,氣氛安靜。", drive:"高千穗峽→天岩戶神社 約15分(估計)", luck:"主打開運招福、緣分、家庭平安,祭祀太陽神天照大神,適合祈求整體運勢轉好。天安河原堆小石塔許願。" },
+      { time:"19:00(預估)", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", drive:"天岩戶神社→飯店 約2.5~3小時(估計)" }
     ]},
     { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"udo", title:"宮崎一日(景點待補)", sample:true, items:[
-      { time:"10:00", name:"青島神社(範例)", tag:"car", must:true, note:"請改成你們想去的景點", map:"青島神社" },
+      { time:"10:00", name:"日南太陽花園(サンメッセ日南)", tag:"car", must:true, note:"成人1,000日圓。9:30~17:00,週三休。停車場免費", map:"サンメッセ日南", feat:"七尊摩艾像面向太平洋,是獲得智利復活節島長老會正式許可複製的。站在山丘上能看到整片日南海岸,拍照很出片。", drive:"飯店→日南太陽花園 約50分(估計)" },
       { time:"12:30", name:"午餐:宮崎名物(待補)", tag:"walk" },
-      { time:"15:00", name:"鵜戶神宮(範例)", tag:"car", must:true, map:"鵜戸神宮" }
+      { time:"下午(時間待定)", name:"鵜戶神宮", tag:"car", must:true, note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"傍晚(時間待定)", name:"飫肥城跡", tag:"walk", must:true, note:"停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" }
     ]},
     { date:"12/23", iso:"2026-12-23", wk:"三", city:"oita", scene:"onsen", title:"前往大分(地點待確認)", sample:true, items:[
       { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認" }
@@ -452,21 +457,17 @@ const TRIP = {
     { date:"12/24", iso:"2026-12-24", wk:"四", city:"kokura", scene:"sarakura", title:"小倉散步", sample:true, items:[
       { time:"10:00", name:"小倉城(範例)", tag:"walk", must:true, map:"小倉城" },
       { time:"13:00", name:"旦過市場(範例)", tag:"walk", must:true, map:"旦過市場" },
-      { time:"18:00", name:"晚餐(待補)", tag:"walk" }
+      { time:"18:00", name:"晚餐(待補)", tag:"walk" },
+{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"walk", must:true, note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
     ]},
     { date:"12/25", iso:"2026-12-25", wk:"五", city:"kokura", scene:"xmas", title:"最後一天,搭夜間班機回台", sample:true, items:[
-      { time:"11:00", name:"退房,寄放行李", tag:"walk" },
-      { time:"14:00", name:"最後採買(待補)", tag:"car" },
-      { time:"17:30", name:"小倉車站聖誕燈飾與聖誕樹(範例)", tag:"walk", must:true, note:"請確認點燈時間", map:"JR小倉駅" },
-      { time:"19:30", name:"還車+前往北九州機場", tag:"car", note:"23:50起飛,建議21:00前到機場", map:"北九州空港" },
-      { time:"23:50", name:"搭7G801回台北", tag:"plane" }
+{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", must:true, note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", must:true, note:"市場營業到15:00,週五10:00起(有資料寫9:00)有「活きいき馬関街」,賣完就收", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", must:true, note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"plane" }
     ]}
   ],
 
   todos: [
     "確認12/23晚上的住宿",
-    "確認大分要去的地點(大分市 / 別府 / 由布院)",
-    "確認租車預約與取車,還車地點",
+    "確認大分要去的地點(大分市/別府/由布院)",
     "決定每天想去的景點",
     "查店家營業日(年底可能休息)"
   ],
@@ -476,12 +477,12 @@ const TRIP = {
            tel      = 飯店電話(日本導航可直接輸入電話找地點)
            mapcode  = Mapcode (日本導航可輸入) */
   hotels: [
-    { name:"宮崎天空塔藝術飯店", area:"宮崎/宮崎縣", in:"2026/12/21(一)", out:"2026/12/23(三)",
+    { name:"宮崎天空塔藝術飯店", area:"宮崎/宮崎縣", in:"2026/12/21(一) 15:00後", out:"2026/12/23(三) 11:00前",
       room:"精緻 加大雙人床房", plan:"",
       addr:"880-0812 宮崎縣宮崎市高千穗通2-1-26", mapQuery:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", mapUrl:"", tel:"", mapcode:"" },
     { name:"(12/23晚上待確認)", area:"", in:"2026/12/23(三)", out:"2026/12/24(四)",
       room:"", plan:"尚未找到這晚的訂單", warn:true, mapQuery:"", mapUrl:"", tel:"", mapcode:"" },
-    { name:"小倉舒適酒店", area:"北九州/福岡縣", in:"2026/12/24(四)", out:"2026/12/25(五)",
+    { name:"小倉舒適酒店", area:"北九州/福岡縣", in:"2026/12/24(四) 15:00後", out:"2026/12/25(五) 10:00前",
       room:"標準 雙人房", plan:"",
       addr:"802-0001 福岡縣北九州市小倉北區淺野2-6-21", mapQuery:"福岡県北九州市小倉北区浅野2-6-21 コンフォートホテル小倉", mapUrl:"", tel:"", mapcode:"" }
   ],
@@ -839,10 +840,10 @@ $("#flights").innerHTML = TRIP.flights.map((f,i) => {
     <div class="bp-main">
       <div class="bp-end"><div class="bp-code">${esc(f.from)}</div><div class="bp-time">${esc(f.dep)}</div><div class="bp-city">${esc(f.fromCity)}</div></div>
       <div class="bp-mid">${MID}直飛<br>${esc(f.dur)}</div>
-      <div class="bp-end r"><div class="bp-code">${esc(f.to)}</div><div class="bp-time">${esc(f.arr)}</div><div class="bp-city">${esc(f.toCity)}</div></div>
+      <div class="bp-end r"><div class="bp-code">${esc(f.to)}</div><div class="bp-time">${esc(f.arr)}${f.arrDate ? `<sup class="plus1">+1</sup>` : ""}</div><div class="bp-city">${esc(f.toCity)}</div></div>
     </div>
     <div class="bp-cut"></div>
-    <div class="bp-rows">${row("座位", f.seat)}${row("託運行李", f.bag)}${row("票價類型", f.fare)}${f.arrDate ? row("抵達日期", f.arrDate) : ""}</div>
+    <div class="bp-rows">${row("託運行李", f.bag)}${row("旅遊類型", f.fare)}</div>
   </div>`;
 }).join("");
 
@@ -954,7 +955,7 @@ function renderDay(animate, dir){
       <div class="item ${it.must?"must":""}">
         <div class="time">${esc(it.time)}</div>
         <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
-        ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+        ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
         ${it.map ? `<div class="links"><a class="mini" href="${gmap(it.map)}" target="_blank" rel="noopener">地圖</a><a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">導航</a></div>` : ""}
       </div>`).join("") + `</div>`;
   if (animate){ const c = $("#dayCard"); c.classList.remove("pop", "slideR", "slideL"); void c.offsetWidth; c.classList.add(dir < 0 ? "slideL" : "slideR"); }
@@ -1152,7 +1153,7 @@ function buildPrintDoc(){
         <div class="item ${it.must?"must":""}">
           <div class="time">${esc(it.time)}</div>
           <div class="name">${it.tag ? `<span class="tag ${esc(it.tag)}">${TAGNAME[it.tag]||esc(it.tag)}</span>` : ""}${esc(it.name)} ${it.must?`<span class="must-badge">必去</span>`:""}</div>
-          ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}
+          ${it.note ? `<div class="note">${esc(it.note)}</div>` : ""}${it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : ""}${it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : ""}${it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : ""}
         </div>`).join("")}</div>
     </div>`).join("");
   const tiles = $(".lg-tiles").outerHTML;
