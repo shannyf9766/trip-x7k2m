@@ -107,7 +107,7 @@ nav a:nth-child(4n+4){background:var(--green)}
 .tag.bus{background:var(--green)}
 .tag.car{background:var(--yellow)}
 .tag.walk{background:var(--paper)}
-.tag.train,.tag.car,.tag.plane,.tag.bus,.tag.takeoff,.tag.walk,.tag.taxi,.tag.cable,.tag.boat,.tag.meal,.tag.torii{animation:none!important}
+.tag.train,.tag.car,.tag.plane,.tag.bus,.tag.takeoff,.tag.walk,.tag.taxi,.tag.cable,.tag.boat,.tag.meal,.tag.torii,.tag.shop{animation:none!important}
 .tag.taxi{background:var(--paper)}
 .tag.ico{border:0;background:none;padding:0;margin-right:6px;line-height:0;vertical-align:middle}
 .tag.ico svg{width:36px;height:28px;display:inline-block;vertical-align:middle}
@@ -453,9 +453,10 @@ const TRIP = {
   days: [
     { date:"12/21", iso:"2026-12-21", wk:"一", city:"miyazaki", scene:"takachiho", title:"抵達北九州,自駕前往宮崎", sample:true, items:[
       { time:"06:15", name:"抵達北九州機場", tag:"plane", note:"入境,領行李" },
+      { time:"07:00", name:"早餐:機場或超商輕食", tag:"meal", note:"首推:機場內或出發前去超商快速解決,抓 10:00 準時上路最穩", place:"北九州空港 コンビニ" },
       { time:"08:00", name:"取租車(範例)", tag:"car", note:"記得帶駕照正本+日文譯本" },
       { time:"10:00", name:"自駕前往高千穗", tag:"car", drive:"北九州機場→高千穗 約3.5~4小時(估計)" },
-{ time:"13:30(預估)", name:"停車:第1御塩井停車場", tag:"car", note:"第1御塩井1,000日圓(划船報到處在場內)。第2停車場1,000日圓。第3大橋800日圓(入場後60分鐘免費)。第4押方500日圓(入場後60分鐘免費)。第5田口野免費,但步行到乘船處約30分鐘", map:"高千穂峡 第1御塩井駐車場" },      { g:"午餐", time:"時間待定", name:"A:千穗之家(食事処 千穂の家)", tag:"meal", note:"在高千穗峽步道入口旁,有流水麵,最省移動時間。營業 10:00~16:00,年中無休(舊資料);冬天有沒有流水麵沒確認。電話 0982-72-2115", place:"食事処 千穂の家 高千穂町" },
+{ time:"13:30(預估)", name:"停車:第1御塩井停車場", tag:"car", note:"第1御塩井1,000日圓(划船報到處在場內)。第2停車場1,000日圓。第3大橋800日圓(入場後60分鐘免費)。第4押方500日圓(入場後60分鐘免費)。第5田口野免費,但步行到乘船處約30分鐘", map:"高千穂峡 第1御塩井駐車場" },      { g:"午餐", time:"時間待定", name:"A:千穗之家(食事処 千穂の家)", tag:"meal", note:"★首推:在峽谷步道旁,最不繞路省時間。在高千穗峽步道入口旁,有流水麵,最省移動時間。營業 10:00~16:00,年中無休(舊資料);冬天有沒有流水麵沒確認。電話 0982-72-2115", place:"食事処 千穂の家 高千穂町" },
       { g:"午餐", time:"時間待定", name:"B:ともえまる食堂", tag:"meal", note:"在高千穗神社附近,有高千穗牛炙燒丼、南蠻炸雞定食。營業 11:00~13:45(週一到週五還有 17:00~19:00),12/21 中午有開,建議 13:00 前到", place:"ともえまる食堂 高千穂町" },
       { g:"午餐", time:"時間待定", name:"C:高千穗牛燒肉 和", tag:"meal", note:"高千穗牛。營業 11:00~14:00、17:00~20:30,週三休(12/21 週一有開)。午餐時段到 14:00,建議 13:30 前到", place:"高千穂牛焼肉 和 高千穂町" },
       { time:"14:00", name:"高千穗峽步道(划船可選)", tag:"walk", book:"https://zh-tw-62123.site-translation.com/boat/detail.php", note:"步道免費入場,直接沿著峽谷走就能看到柱狀岩壁和真名井瀑布。划船可選,30分鐘/艘,最多3人,5,100日圓,8:30~17:00(最後受付16:30),河水暴漲會停開。可網路預約(乘船日2週前起到前2日9:00止,待官網確認),也有當日受付", map:"高千穂峡 貸しボート受付", feat:"約12萬年前阿蘇火山的熔岩被河水切開,形成高數十公尺的柱狀岩壁峽谷。真名井瀑布從岩壁落入翠綠潭水,划船可以近看,是高千穗最經典的畫面。" },      { g:"神社(二選一)", time:"15:15", name:"A:高千穗神社", tag:"torii", drive:"高千穗峽→高千穗神社 約10分(估計)", note:"參拜免費,境內平緩好走,30~50分鐘能走完主要動線。每晚的夜神樂(約20:00起,成人約1,000日圓)時間與價格待確認,而且當晚要開車去宮崎,時間對不上", feat:"位置貼近鎮中心,被高大杉木環繞,環境沉穩。境內有「夫婦杉」,也能感受高千穗神樂文化。", luck:"夫婦和合、緣結、家庭圓滿。夫婦杉是兩人牽手繞樹三圈,祈求感情圓滿", map:"高千穂神社" },
@@ -463,7 +464,7 @@ const TRIP = {
       { time:"19:30(預估)", name:"宮崎天空塔藝術飯店 入住", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー", drive:"天岩戶神社→飯店 約2.5~3小時(估計)" },
       { g:"晚餐", time:"晚上(時間待定)", name:"A:ぐんけい 隠蔵", tag:"meal", note:"地頭雞炭火燒、雞肉刺身,從飯店步行約10分鐘。如果超過20:00才到市區,B、C 比較保險。營業 17:00~24:00(最後點餐23:00),不定休,建議先訂位,電話 0985-28-4365", place:"ぐんけい 隠蔵 宮崎市" },
       { g:"晚餐", time:"晚上(時間待定)", name:"B:新鮮やきとり 恵屋プラス", tag:"meal", note:"庶民串燒居酒屋,出餐快,有炭烤雞肉串、南蠻炸雞、肉捲飯糰。宮崎市有「恵屋プラス」系列分店(昭和町店、大塚店等),另一份查核寫多數週一 17:00 起營業,我自己沒查到", place:"新鮮やきとり 恵屋プラス 宮崎市" },
-      { g:"晚餐", time:"晚上(時間待定)", name:"C:辛麺屋 桝元", tag:"meal", note:"辛麵,辣度從0辛到30辛可選,不吃辣可點0辛。中央通店 19:00 才開,營業到隔天凌晨3:00(週五到週日到4:00),無休", place:"辛麺屋 桝元 宮崎市" },
+      { g:"晚餐", time:"晚上(時間待定)", name:"C:辛麺屋 桝元", tag:"meal", note:"★首推:開到凌晨,若從高千穗開回宮崎比預估晚,這間最不怕趕不上。辛麵,辣度從0辛到30辛可選,不吃辣可點0辛。中央通店 19:00 才開,營業到隔天凌晨3:00(週五到週日到4:00),無休", place:"辛麺屋 桝元 宮崎市" },
       { g:"晚餐", time:"晚上(時間待定)", name:"D:おぐら 本店", tag:"meal", note:"元祖南蠻炸雞定食。營業 11:00~15:00(最後點餐14:30)、17:00~20:30(最後點餐19:50);週二和第1、3週三休,12/21 是週一有開。19:30 入住後再過去很趕,電話 0985-22-2296", place:"おぐら 本店 宮崎市" }
     ]},
     { date:"12/22", iso:"2026-12-22", wk:"二", city:"miyazaki", scene:"car", title:"宮崎一日(景點待補)", sample:true, items:[
@@ -473,25 +474,42 @@ const TRIP = {
       { time:"12:00", name:"午餐:鵜戶神宮周邊食堂(店家待確認)", tag:"meal", note:"鵜戶神宮參道附近有食堂,可吃日南海岸海鮮丼、伊勢龍蝦味噌湯、南蠻炸雞定食。下午還要逛飫肥城下町小吃,中午吃七八分飽就好", place:"鵜戸神宮 食堂 日南市" },
       { time:"13:00", name:"鵜戶神宮", tag:"torii", note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"14:50", name:"飫肥城跡", tag:"walk", note:"館舍營業 09:30~16:30,室內設施要在16:30前逛完。停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" },
       { time:"16:45", name:"驅車返回宮崎市區", tag:"car", drive:"飫肥城跡→宮崎市區 約50~60分(估計),17:00 左右天黑" },
-      { g:"逛街(二選一)", time:"順路(視需求)", name:"A:優衣庫 宜得利Mall宮崎店", tag:"walk", note:"優衣庫和宜得利在同一個商場。營業時間待確認", place:"ニトリモール宮崎" },
-      { g:"逛街(二選一)", time:"順路(視需求)", name:"B:AEON MALL Miyazaki", tag:"walk", note:"營業 10:00~21:00,停車場大,自駕方便", place:"イオンモール宮崎" },
+      { g:"逛街(二選一)", time:"順路(視需求)", name:"A:UNIQLO 宜得利Mall宮崎店", tag:"shop", note:"UNIQLO 和宜得利在同一個商場。營業時間:每天 10:00~21:00", place:"ニトリモール宮崎" },
+      { g:"逛街(二選一)", time:"順路(視需求)", name:"B:AEON MALL Miyazaki", tag:"shop", note:"營業 10:00~21:00,停車場大,自駕方便", place:"イオンモール宮崎" },
       { time:"18:00", name:"回飯店停車、稍作休息", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー" },
       { time:"18:30", name:"宮崎站聖誕市集+AMU PLAZA 宮崎 海館", tag:"walk", note:"聖誕市集 11/20~12/25,平日 16:00~22:00(各攤位以現場為準)。AMU PLAZA 海館 10:00~20:00,逛街要在 20:00 前。晚餐可以在市集前後吃", place:"AMU PLAZA 宮崎 宮崎駅" },
-      { g:"晚餐", time:"晚上", name:"A:營養軒", tag:"meal", note:"宮崎拉麵老店。營業 10:30~23:30,週一休息(12/22 是週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"營養軒 宮崎市" },
-      { g:"晚餐", time:"晚上", name:"B:さといも", tag:"meal", note:"宮崎拉麵。營業 10:30~22:00,週三休息(12/22 週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"さといも 宮崎市" },
-      { g:"晚餐", time:"晚上", name:"C:風来軒 本店", tag:"meal", note:"宮崎拉麵。營業 11:00~22:00,每天都開", place:"拉麺 風来軒 本店 宮崎市" }
+      { g:"晚餐", time:"晚上", name:"A:AMU PLAZA 宮崎 海館/橘通周邊(非拉麵正餐)", tag:"meal", note:"★首推:早上已經吃過拉麵,晚上改吃燒肉、定食或居酒屋,口味不會整天都像拉麵。店家待挑選。AMU PLAZA 海館 10:00~20:00", place:"AMU PLAZA 宮崎 宮崎駅" },
+      { g:"晚餐", time:"晚上", name:"B:營養軒", tag:"meal", note:"備選。宮崎拉麵老店。營業 10:30~23:30,週一休息(12/22 是週二有開)", place:"營養軒 宮崎市" },
+      { g:"晚餐", time:"晚上", name:"C:さといも", tag:"meal", note:"備選。宮崎拉麵。營業 10:30~22:00,週三休息(12/22 週二有開)", place:"さといも 宮崎市" },
+      { g:"晚餐", time:"晚上", name:"D:風来軒 本店", tag:"meal", note:"備選。宮崎拉麵。營業 11:00~22:00,每天都開", place:"拉麺 風来軒 本店 宮崎市" },
+      { time:"晚餐後(視需求)", name:"MEGA 唐吉訶德 宮崎橘通店", tag:"shop", note:"當作散步順逛、挖寶補貨,不用每樣都比價。營業 09:00~翌02:00(這是 2020 年重新開幕時的資料,可能有變)", place:"MEGAドン・キホーテ 宮崎橘通店" }
     ]},
     { date:"12/23", iso:"2026-12-23", wk:"三", city:"oita", scene:"onsen", title:"前往大分(地點待確認)", sample:true, items:[
-      { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認" }
+      { time:"早上(時間待定)", name:"早餐:宮崎市區咖啡廳或飯店早餐", tag:"meal", note:"首推。店家待挑選", place:"宮崎駅 カフェ 朝食" },
+      { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認。路線可混合:不趕時間的路段走平面或國道省一點 ETC,較趕就走高速" },
+      { time:"中午(時間待定)", name:"午餐:北上往大分途中順路餐廳", tag:"meal", note:"首推:改吃定食或海鮮,避開前兩天吃過的南蠻炸雞和拉麵。店家待挑選" },
+      { time:"下午(時間待定)", name:"大分市區商場逛街(UNIQLO 或 Donki)", tag:"shop", note:"早點入住休息。商場與營業時間待確認", place:"大分市 ショッピングモール" },
+      { time:"晚上(時間待定)", name:"晚餐:大分市區在地料理", tag:"meal", note:"首推:雞天、琉球丼或居酒屋。先避開 12/24 聖誕夜的燒肉、炊肉。店家待挑選", place:"大分駅 雞天 琉球丼" }
     ]},
     { date:"12/24", iso:"2026-12-24", wk:"四", city:"kokura", scene:"sarakura", title:"小倉散步", sample:true, items:[
-      { time:"10:00", name:"小倉城(範例)", tag:"walk", map:"小倉城" },
-      { time:"13:00", name:"旦過市場(範例)", tag:"walk", map:"旦過市場" },
-      { time:"18:00", name:"晚餐(待補)", tag:"walk" },
-{ time:"晚上(時間待定)", name:"開車去皿倉山停車場", tag:"car", note:"24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"飯店→皿倉山停車場 約15~20分(估計)" },      { time:"晚上", name:"皿倉山夜景(纜車加斜坡車)", tag:"cable", note:"往返通票1,230日圓/人。冬季營業到20:00(上山最後一班19:20),出發前先看天氣", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」,山頂標高約622公尺。能一次看到洞海灣、若戶大橋和整片城市燈海。" }
+      { g:"早餐", time:"早上(時間待定)", name:"A:別府灣服務區(北上方向)", tag:"meal", note:"★首推。大分上高速往北不久就到,展望台能俯瞰別府灣。可買咖啡、麵包,約15~20分鐘,省時順路", place:"別府湾SA 上り" },
+      { g:"早餐", time:"早上(時間待定)", name:"B:Komeda 珈琲店(大分市區)", tag:"meal", note:"備選。11:00 前點飲料免費送厚片吐司(可選水煮蛋、蛋沙拉或紅豆泥)。要選有附停車場的分店", place:"コメダ珈琲店 大分" },
+      { g:"早餐", time:"早上(時間待定)", name:"C:Joyfull(大分市區)", tag:"meal", note:"備選。大分是 Joyfull 的發源地,早上就營業,有免費停車場,有和式鮭魚定食、漢堡排早餐與飲料吧", place:"ジョイフル 大分" },
+      { time:"早餐後", name:"自駕大分→小倉", tag:"car", note:"若想省 ETC,可走國道10號搭配東九州道免費路段,比全程高速多約 30~50 分鐘(此為別人給的說法,還沒驗證)。抓 16:00 前到皿倉山即可" },
+      { time:"11:30(預估)", name:"午餐:資さんうどん(接近小倉時)", tag:"meal", note:"北九州的在地烏龍麵連鎖,推薦肉ごぼ天うどん。查到魚町店、宇佐町店是 24 小時、全年無休;西小倉店 7:00~翌1:00。停車場有沒有,網路上查不到,出發前看地圖確認", place:"資さんうどん 小倉" },
+      { g:"下午(二選一)", time:"12:30", name:"A:THE OUTLETS KITAKYUSHU", tag:"shop", note:"就在皿倉山附近,逛完直接上山看夜景最順。營業 10:00~20:00,餐廳與美食街到 21:00(12 月年底有沒有調整,出發前看官網)。離 JR 太空世界站走路約 2~7 分鐘(各網站寫法不同)", map:"THE OUTLETS KITAKYUSHU" },
+      { g:"下午(二選一)", time:"12:30", name:"B:小倉城+庭園,再逛旦過市場、魚町銀天街、AMU PLAZA 小倉", tag:"walk", note:"小倉城在市中心,天守閣加庭園走一圈約 1.5~2 小時。想逛街、買伴手禮可在旦過市場、魚町銀天街、AMU PLAZA 小倉,有暖氣的商場比較舒服", map:"小倉城", place:"AMU PLAZA 小倉" },
+      { time:"16:00", name:"開車去皿倉山停車場", tag:"car", note:"帆柱公園立體停車場,24小時,2小時內100日圓/4小時內200日圓/超過4小時300日圓,高度限制2.2m,入口在屋頂側", map:"帆柱公園立体駐車場", drive:"小倉市區→皿倉山停車場 約15~20分(估計)" },
+      { time:"16:30", name:"皿倉山夜景(纜車加斜坡車)", tag:"cable", note:"往返通票1,230日圓/人。12月日落約17:10,16:30上山可看夕陽→藍調時刻→夜景。官網:11~3 月 10:00~20:00(上山最後一班19:20),每週二休(12/24 是週四有開),12/31 提早結束。確認電話 093-671-4761。山頂約622公尺,晚上很冷風大,帶帽子手套", map:"皿倉山ケーブルカー山麓駅", feat:"北九州夜景入選「日本新三大夜景」。能一次看到洞海灣、若戶大橋和整片城市燈海。" },
+      { time:"18:30", name:"下山回小倉飯店停車", tag:"car", note:"先放東西、把車停好,晚餐走路去最輕鬆" },
+      { g:"晚餐", time:"19:15", name:"A:焼肉の龍園 小倉本店", tag:"meal", note:"★首推之一。燒肉。查到的營業時間:平日 11:30~15:00、17:00~23:00(最後點餐22:30),12/24 是週四。定休日寫無,但各網站不完全一致。電話 093-531-1129,聖誕夜建議先訂位", place:"焼肉の龍園 小倉本店" },
+      { g:"晚餐", time:"19:15", name:"B:焼肉酒場 天彦", tag:"meal", note:"燒肉。營業時間待確認,聖誕夜建議先訂位", place:"焼肉酒場 天彦 小倉" },
+      { g:"晚餐", time:"19:15", name:"C:焼肉商店 一(hazime)", tag:"meal", note:"燒肉。營業時間待確認,聖誕夜建議先訂位", place:"焼肉商店 一 小倉" },
+      { g:"晚餐", time:"19:15", name:"D:炊き肉 GYU-CYAN 小倉店", tag:"meal", note:"★首推之一。鍋物,看完冷冷的夜景吃熱鍋很舒服。營業時間查不到(搜尋只找到名稱類似的「炊き肉 牛ちゃん 小倉店」,不確定是不是同一家),出發前看地圖確認,聖誕夜建議先訂位", place:"炊き肉 GYU-CYAN 小倉店" }
     ]},
     { date:"12/25", iso:"2026-12-25", wk:"五", city:"kokura", scene:"xmas", title:"最後一天,搭夜間班機回台", sample:true, items:[
-{ time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", note:"常設展 一般480日圓", map:"北九州市漫画ミュージアム" },      { time:"下午(時間待定)", name:"唐戶市場(下關)", tag:"train", note:"市場營業到15:00,賣完就收。「活きいき馬関街」週五到週日與假日舉辦,但年末年始不辦,12/25 是否舉辦待確認(唐戶市場 083-231-0001)", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", note:"唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"takeoff" }
+{ time:"08:00", name:"早餐:小倉站周邊輕食、麵包、咖啡", tag:"meal", note:"首推。要在 08:30 退房、09:00 還車前吃完", place:"小倉駅 カフェ パン" },      { time:"08:30", name:"退房(10:00前)" },      { time:"09:00", name:"小倉站還車", tag:"car", map:"JR小倉駅" },      { time:"11:00", name:"北九州市漫畫博物館", tag:"walk", note:"常設展 一般480日圓。在小倉站新幹線口旁的 あるあるCity 5、6 樓,每週二休(12/25 是週五有開)", map:"北九州市漫画ミュージアム" },      { time:"中午(時間待定)", name:"午餐:唐戶市場(下關)", tag:"train", note:"★首推:吃海鮮或握壽司。若 12/25 有開且中午前就到。市場平日約 05:00~15:00(各店不同),賣完就收,太晚去可能沒東西吃;若沒開或已收攤,改在門司港吃燒咖哩。「活きいき馬関街」週五到週日與假日舉辦,官方寫年末年始不辦,往年約 12 月中旬就結束,所以 12/25 多半沒有(唐戶市場 083-231-0001)", map:"唐戸市場", feat:"下關是河豚之都,市場有現做現吃的海鮮與握壽司,週末的「活きいき馬関街」最熱鬧。吃完走幾分鐘就是海邊。" },      { time:"傍晚(時間待定)", name:"門司港", tag:"train", note:"備選午餐:燒咖哩。唐戶→門司港可搭關門聯絡船,約5分鐘(班次、票價待確認)", map:"門司港駅", feat:"「門司港レトロ」保留大正時期的西洋建築,例如舊門司站,港邊傍晚會點燈。當地名物是焗烤咖哩。" },      { time:"傍晚(時間待定)", name:"晚餐:小倉站周邊或門司港", tag:"meal", note:"首推。要在 20:30~21:00 搭機場巴士前吃完,避免機場內餐飲少或打烊。店家待挑選", place:"小倉駅 ディナー" },
+      { time:"(待確認)", name:"前往北九州機場", tag:"bus", note:"已還車,搭機場巴士(西鐵),單程710日圓,約35~43分。時刻表待確認(查到晚班23:00發/23:40到,趕不上23:50班機),建議20:30~21:00搭", map:"北九州空港" },      { time:"23:50", name:"搭7G801回台北", tag:"takeoff" }
     ]}
   ],
 
@@ -554,8 +572,8 @@ const store = {
   set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 };
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const TAGNAME = {plane:"抵達", takeoff:"起飛", train:"電車", bus:"巴士", car:"自駕", walk:"步行", taxi:"計程車", cable:"纜車", boat:"划船", meal:"用餐", torii:"參拜"};
-const TAGICON = {"meal": "<path d=\"M5 14H31Q30 24 18 25Q6 24 5 14Z\" fill=\"#F6D27A\"/><path d=\"M13 10q2-2 0-5M18 10q2-2 0-5M23 10q2-2 0-5\" fill=\"none\"/><path d=\"M12 27H24\" fill=\"none\"/>", "torii": "<path d=\"M2 4.5Q18 7.5 34 4.5V8.6Q18 11.6 2 8.6Z\" fill=\"#F2A99B\"/><path d=\"M6 15H30\" fill=\"none\"/><path d=\"M10 9.6V26M26 9.6V26\" fill=\"none\"/>", "boat": "<path d=\"M3 17H33L28 24Q18 27 8 24Z\" fill=\"#F6D27A\"/><circle cx=\"18\" cy=\"7\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 10.5V17M18 12.5L12 16M18 12.5L25 15\" fill=\"none\"/><path d=\"M5 27q4-3 8 0t8 0t8 0\" fill=\"none\"/>", "car": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "taxi": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><rect x=\"15\" y=\"2\" width=\"6\" height=\"3.5\" rx=\"1\" fill=\"#F2A497\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "walk": "<circle cx=\"18\" cy=\"5.5\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 9.5l-1 8M18 11.5l-5 3.5M18 11.5l5 3M17 17.5l-4.5 7.5M17 17.5l5.5 6\" fill=\"none\"/>", "train": "<rect x=\"7\" y=\"3\" width=\"22\" height=\"19\" rx=\"5\" fill=\"#A8D3E6\"/><rect x=\"10.5\" y=\"6.5\" width=\"15\" height=\"8\" rx=\"2\" fill=\"#fff\"/><circle cx=\"12.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><circle cx=\"23.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><path d=\"M11 25l-2 2M25 25l2 2M11 22v3M25 22v3\" fill=\"none\"/>", "bus": "<rect x=\"3\" y=\"5\" width=\"30\" height=\"17\" rx=\"4\" fill=\"#B9DAA5\"/><rect x=\"6\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"15\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"24\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><circle cx=\"10\" cy=\"23\" r=\"3\" fill=\"#fff\"/><circle cx=\"26\" cy=\"23\" r=\"3\" fill=\"#fff\"/>", "cable": "<path d=\"M2 4L34 4M18 4v5\" fill=\"none\"/><rect x=\"8\" y=\"9\" width=\"20\" height=\"15\" rx=\"3.5\" fill=\"#F2A497\"/><rect x=\"11.5\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/><rect x=\"19\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/>", "plane": "<g transform=\"rotate(14 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>", "takeoff": "<g transform=\"rotate(-16 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>"};
+const TAGNAME = {plane:"抵達", takeoff:"起飛", train:"電車", bus:"巴士", car:"自駕", walk:"步行", taxi:"計程車", cable:"纜車", boat:"划船", meal:"用餐", torii:"參拜", shop:"逛街"};
+const TAGICON = {"shop": "<path d=\"M7 10H29L31 26H5Z\" fill=\"#F2A99B\"/><path d=\"M13 13V8Q13 3 18 3Q23 3 23 8V13\" fill=\"none\"/>", "meal": "<path d=\"M5 14H31Q30 24 18 25Q6 24 5 14Z\" fill=\"#F6D27A\"/><path d=\"M13 10q2-2 0-5M18 10q2-2 0-5M23 10q2-2 0-5\" fill=\"none\"/><path d=\"M12 27H24\" fill=\"none\"/>", "torii": "<path d=\"M2 4.5Q18 7.5 34 4.5V8.6Q18 11.6 2 8.6Z\" fill=\"#F2A99B\"/><path d=\"M6 15H30\" fill=\"none\"/><path d=\"M10 9.6V26M26 9.6V26\" fill=\"none\"/>", "boat": "<path d=\"M3 17H33L28 24Q18 27 8 24Z\" fill=\"#F6D27A\"/><circle cx=\"18\" cy=\"7\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 10.5V17M18 12.5L12 16M18 12.5L25 15\" fill=\"none\"/><path d=\"M5 27q4-3 8 0t8 0t8 0\" fill=\"none\"/>", "car": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "taxi": "<path d=\"M5 19v-5c0-1 .7-2 1.8-2.3L10 11l3-4.5c.5-.8 1.3-1.2 2.2-1.2h6c.9 0 1.7.4 2.2 1.1L26 11l3.2.8c1.1.3 1.8 1.3 1.8 2.4V19c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1z\" fill=\"#F6D27A\"/><path d=\"M14 11l1.8-3.2h5.4L23 11z\" fill=\"#fff\"/><rect x=\"15\" y=\"2\" width=\"6\" height=\"3.5\" rx=\"1\" fill=\"#F2A497\"/><circle cx=\"11\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/><circle cx=\"25\" cy=\"21\" r=\"3.2\" fill=\"#fff\"/>", "walk": "<circle cx=\"18\" cy=\"5.5\" r=\"3.2\" fill=\"#fff\"/><path d=\"M18 9.5l-1 8M18 11.5l-5 3.5M18 11.5l5 3M17 17.5l-4.5 7.5M17 17.5l5.5 6\" fill=\"none\"/>", "train": "<rect x=\"7\" y=\"3\" width=\"22\" height=\"19\" rx=\"5\" fill=\"#A8D3E6\"/><rect x=\"10.5\" y=\"6.5\" width=\"15\" height=\"8\" rx=\"2\" fill=\"#fff\"/><circle cx=\"12.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><circle cx=\"23.5\" cy=\"18\" r=\"1.3\" fill=\"#fff\"/><path d=\"M11 25l-2 2M25 25l2 2M11 22v3M25 22v3\" fill=\"none\"/>", "bus": "<rect x=\"3\" y=\"5\" width=\"30\" height=\"17\" rx=\"4\" fill=\"#B9DAA5\"/><rect x=\"6\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"15\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><rect x=\"24\" y=\"8\" width=\"6\" height=\"6\" rx=\"1.5\" fill=\"#fff\"/><circle cx=\"10\" cy=\"23\" r=\"3\" fill=\"#fff\"/><circle cx=\"26\" cy=\"23\" r=\"3\" fill=\"#fff\"/>", "cable": "<path d=\"M2 4L34 4M18 4v5\" fill=\"none\"/><rect x=\"8\" y=\"9\" width=\"20\" height=\"15\" rx=\"3.5\" fill=\"#F2A497\"/><rect x=\"11.5\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/><rect x=\"19\" y=\"12.5\" width=\"5.5\" height=\"6\" rx=\"1.2\" fill=\"#fff\"/>", "plane": "<g transform=\"rotate(14 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>", "takeoff": "<g transform=\"rotate(-16 18 14)\"><path d=\"M16 14L11 4h5l7 10z\" fill=\"#F2A497\"/><path d=\"M16 14L11 24h5l7-10z\" fill=\"#F2A497\"/><path d=\"M8 11L4 6h4.5l3.5 5z\" fill=\"#F2A497\"/><ellipse cx=\"19\" cy=\"14\" rx=\"13\" ry=\"4.2\" fill=\"#fff\"/></g>"};
 function tagIcon(t){
   const nm = TAGNAME[t] || t;
   const body = TAGICON[t];
@@ -986,6 +1004,10 @@ function renderWeather(){
 /* 每日行程: 日期按鈕 + 小公路 + 滑動 */
 let cur = store.get("day", 0);
 if (!(cur >= 0 && cur < TRIP.days.length)) cur = 0;
+// 開頁時依「今天日期」自動跳到當天;旅程前顯示第一天,旅程後顯示最後一天
+{ const t = new Date(), ymd = t.getFullYear() + "-" + String(t.getMonth()+1).padStart(2,"0") + "-" + String(t.getDate()).padStart(2,"0");
+  const k = TRIP.days.findIndex(d => d.iso === ymd);
+  if (k >= 0) cur = k; else if (ymd < TRIP.days[0].iso) cur = 0; else if (ymd > TRIP.days[TRIP.days.length-1].iso) cur = TRIP.days.length-1; }
 const RN = TRIP.days.length;
 const RX = TRIP.days.map((_, i) => RN > 1 ? 40 + i * (280 / (RN - 1)) : 180);
 const roadWheel = cx => `<g class="wheel"><circle cx="${cx}" cy="50" r="11" fill="${INK}"/><path d="M${cx} 44V56M${cx - 6} 50H${cx + 6}" stroke="#FFFCF6" stroke-width="3" fill="none"/></g>`;
