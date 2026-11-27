@@ -473,9 +473,13 @@ const TRIP = {
       { time:"12:00", name:"午餐:鵜戶神宮周邊食堂(店家待確認)", tag:"meal", note:"鵜戶神宮參道附近有食堂,可吃日南海岸海鮮丼、伊勢龍蝦味噌湯、南蠻炸雞定食。下午還要逛飫肥城下町小吃,中午吃七八分飽就好", place:"鵜戸神宮 食堂 日南市" },
       { time:"13:00", name:"鵜戶神宮", tag:"torii", note:"參拜免費。停車場免費(神社周邊3處,旺季可能客滿)", map:"鵜戸神宮", feat:"本殿建在面海的斷崖洞窟裡,朱紅色的殿宇和海浪是日南海岸代表景色。可以在海邊的龜石投擲「運玉」許願,以安產、緣結聞名。", drive:"日南太陽花園→鵜戶神宮 約15分(估計)", luck:"安產、育兒、夫婦和合、緣結。運玉投進龜石凹洞就能許願(男生左手、女生右手)。" },      { time:"14:50", name:"飫肥城跡", tag:"walk", note:"館舍營業 09:30~16:30,室內設施要在16:30前逛完。停車:飫肥城觀光停車場,普通車免費,在大手門附近,大型/中型車收費。地址:日南市飫肥10-1-2(來源不一)", map:"飫肥城観光駐車場", feat:"江戶時代伊東氏的城下町,有「九州小京都」之稱,保留石垣、武家屋敷和復原的大手門。街上可以吃到當地的魚漿天婦羅「飫肥天」。", drive:"鵜戶神宮→飫肥城跡 約30分(估計)" },
       { time:"16:45", name:"驅車返回宮崎市區", tag:"car", drive:"飫肥城跡→宮崎市區 約50~60分(估計),17:00 左右天黑" },
-      { g:"晚餐", time:"18:00", name:"A:營養軒", tag:"meal", note:"宮崎拉麵老店。營業 10:30~23:30,週一休息(12/22 是週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"營養軒 宮崎市" },
-      { g:"晚餐", time:"18:00", name:"B:さといも", tag:"meal", note:"宮崎拉麵。營業 10:30~22:00,週三休息(12/22 週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"さといも 宮崎市" },
-      { g:"晚餐", time:"18:00", name:"C:風来軒 本店", tag:"meal", note:"宮崎拉麵。營業 11:00~22:00,每天都開", place:"拉麺 風来軒 本店 宮崎市" }
+      { g:"逛街(二選一)", time:"順路(視需求)", name:"A:優衣庫 宜得利Mall宮崎店", tag:"walk", note:"優衣庫和宜得利在同一個商場。營業時間待確認", place:"ニトリモール宮崎" },
+      { g:"逛街(二選一)", time:"順路(視需求)", name:"B:AEON MALL Miyazaki", tag:"walk", note:"營業 10:00~21:00,停車場大,自駕方便", place:"イオンモール宮崎" },
+      { time:"18:00", name:"回飯店停車、稍作休息", tag:"car", map:"宮崎県宮崎市高千穂通2-1-26 アートホテル宮崎スカイタワー" },
+      { time:"18:30", name:"宮崎站聖誕市集+AMU PLAZA 宮崎 海館", tag:"walk", note:"聖誕市集 11/20~12/25,平日 16:00~22:00(各攤位以現場為準)。AMU PLAZA 海館 10:00~20:00,逛街要在 20:00 前。晚餐可以在市集前後吃", place:"AMU PLAZA 宮崎 宮崎駅" },
+      { g:"晚餐", time:"晚上", name:"A:營養軒", tag:"meal", note:"宮崎拉麵老店。營業 10:30~23:30,週一休息(12/22 是週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"營養軒 宮崎市" },
+      { g:"晚餐", time:"晚上", name:"B:さといも", tag:"meal", note:"宮崎拉麵。營業 10:30~22:00,週三休息(12/22 週二有開)。資料我有查到,出發前仍建議看地圖確認", place:"さといも 宮崎市" },
+      { g:"晚餐", time:"晚上", name:"C:風来軒 本店", tag:"meal", note:"宮崎拉麵。營業 11:00~22:00,每天都開", place:"拉麺 風来軒 本店 宮崎市" }
     ]},
     { date:"12/23", iso:"2026-12-23", wk:"三", city:"oita", scene:"onsen", title:"前往大分(地點待確認)", sample:true, items:[
       { time:"10:00", name:"退房,自駕前往大分(範例)", tag:"car", note:"注意: 12/23晚上住哪裡還沒確認" }
@@ -1015,7 +1019,7 @@ function groupItems(items){
 }
 function itemBody(it, links){
   return (it.note ? `<div class="note">${esc(it.note)}</div>` : "") + (it.drive ? `<div class="note drive">車程 ${esc(it.drive)}</div>` : "") + (it.feat ? `<div class="note feat">特色:${esc(it.feat)}</div>` : "") + (it.luck ? `<div class="note feat">求什麼:${esc(it.luck)}</div>` : "") +
-    (links && (it.map || it.book || it.place) ? `<div class="links">${it.map ? `<a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">地圖</a>` : ""}${it.place ? `<a class="mini nav" href="${gmap(it.place)}" target="_blank" rel="noopener">地圖(看菜單)</a>` : ""}${it.book ? `<a class="mini" href="${esc(it.book)}" target="_blank" rel="noopener">預約</a>` : ""}</div>` : "");
+    (links && (it.map || it.book || it.place) ? `<div class="links">${it.map ? `<a class="mini nav" href="${gnav(it.map)}" target="_blank" rel="noopener">地圖</a>` : ""}${it.place ? `<a class="mini nav" href="${gmap(it.place)}" target="_blank" rel="noopener">地圖</a>` : ""}${it.book ? `<a class="mini" href="${esc(it.book)}" target="_blank" rel="noopener">預約</a>` : ""}</div>` : "");
 }
 function itemBlock(it, links){
   if (it.opts) {
